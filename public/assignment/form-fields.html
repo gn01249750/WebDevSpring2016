@@ -70,97 +70,126 @@
                 <li role="presentation" class="active"><a href="#">Fields</a></li>
             </ul>
 
-            <form>
-                <table  class="table">
-                    <tr>
-                        <td><p>First Name:</p>
-                            <input type="text" name="First Name" placeholder="First name"></td>
-                        <td><span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span></td>
-                    </tr>
+            <div class="form-group">
+                <p class="col-sm-12">First Name: </p>
+                <div class="col-sm-6">
+                    <input type="firstname" class="form-control" id="firstname" placeholder="First Name">
+                </div>
+                <div class="col-sm-1">
 
-                    <tr>
-                        <td><p>Last Name:</p>
-                            <input type="text" name="Last Name" placeholder="Last Name"></td>
-                        <td><span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span></td>
-                    </tr>
+                </div>
+                <div class="col-sm-5">
+                    <span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span>
+                </div>
 
-                    <tr>
-                        <td><p>Date of Birth:</p>
-                            <select>
-                                <option value="Select Date">Select Date</option>
-                            </select></td>
-                        <td><span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span></td>
-                    </tr>
+                <p class="col-sm-12">Last Name: </p>
+                <div class="col-sm-6">
+                    <input type="lastname" class="form-control" id="lastname" placeholder="Last Name">
+                </div>
+                <div class="col-sm-1">
 
-                    <tr>
-                        <td><p>Gender:</p>
-                            <select>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select></td>
-                        <td><span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span></td>
-                    </tr>
+                </div>
+                <div class="col-sm-5">
+                    <span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span>
+                </div>
 
-                    <tr>
-                        <td><p>Roles:</p>
-                            <form>
-                                <input type="checkbox" name="role" value="Admin" checked> Admin<br>
-                                <input type="checkbox" name="role" value="Student"> Student<br>
-                                <input type="checkbox" name="role" value="User" checked> User
-                            </form></td>
-                        <td><span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span></td>
-                    </tr>
+                <p class="col-sm-12">Date of Birth: </p>
+                <div class="col-sm-6">
+                    <select>
+                        <option value="Select Date">Select Date</option>
+                    </select>
+                </div>
+                <div class="col-sm-1">
 
-                    <tr>
-                        <td><p>License Agreement:</p>
-                            <form>
-                                <input type="radio" name="license agreement" value="yes" checked> yes<br>
-                                <input type="radio" name="license agreement" value="no"> no
-                            </form></td>
-                        <td><span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span></td>
-                    </tr>
+                </div>
+                <div class="col-sm-5">
+                    <span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span>
+                </div>
+
+                <p class="col-sm-12">Gender: </p>
+                <div class="col-sm-6">
+                    <select>
+                        <option value="gender">Male</option>
+                    </select>
+                </div>
+                <div class="col-sm-1">
+
+                </div>
+                <div class="col-sm-5">
+                    <span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span>
+                </div>
 
 
-                    <tr>
-                        <td><p>Add New Field:</p>
-                            <select>
-                                <option value="singleLineOption">Single Line Text</option>
-                                <option value="Date">Date</option>
-                                <option value="Dropdown">Dropdown</option>
-                                <option value="Checkboxes">Checkboxes</option>
-                                <option value="Radiobuttons">Radio Buttons</option>
-                                <option value="ParagraphText">Paragraph Text Field</option>
-                            </select>
-                        <td><span  class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span></td>
-                    </tr>
-                </table>
-                <hr>
-                <table>
+                <p class="col-sm-12">Roles: </p>
+                <div class="col-sm-6">
+                    <form>
+                        <input type="checkbox" name="role" value="Admin" checked> Admin<br>
+                        <input type="checkbox" name="role" value="Student"> Student<br>
+                        <input type="checkbox" name="role" value="User" checked> User
+                    </form>
+                </div>
+                <div class="col-sm-1">
+
+                </div>
+                <div class="col-sm-5">
+                    <span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span>
+                </div>
+
+                <p class="col-sm-12">License Agreement: </p>
+                <div class="col-sm-6">
+                    <form>
+                        <input type="checkbox" name="licenseagreement" value="yes" checked> yes<br>
+                        <input type="checkbox" name="licenseagreement" value="no"> no<br>
+                    </form>
+                </div>
+                <div class="col-sm-1">
+
+                </div>
+                <div class="col-sm-5">
+                    <span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-sm-12">
+                    <h1></h1>
+                </div>
+                <p class="col-sm-12">Add New Field:</p>
+                <div class="col-sm-6">
+                    <select>
+                        <option value="singleLineOption">Single Line Text</option>
+                        <option value="Date">Date</option>
+                        <option value="Dropdown">Dropdown</option>
+                        <option value="Checkboxes">Checkboxes</option>
+                        <option value="Radiobuttons">Radio Buttons</option>
+                        <option value="ParagraphText">Paragraph Text Field</option>
+                    </select>
+                </div>
+                <div class="col-sm-1">
+
+                </div>
+                <div class="col-sm-5">
+                    <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
+                </div>
 
 
-
-
-
-                </table>
-            </form>
+            </div>
 
 
         </div>
