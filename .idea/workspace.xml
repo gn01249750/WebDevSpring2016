@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0502e611-b640-4cd4-ab62-5d50843cb0cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment/admin.html" afterPath="$PROJECT_DIR$/public/assignment/admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment/form-fields.html" afterPath="$PROJECT_DIR$/public/assignment/form-fields.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment/forms.html" afterPath="$PROJECT_DIR$/public/assignment/forms.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment/login.html" afterPath="$PROJECT_DIR$/public/assignment/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment/profile.html" afterPath="$PROJECT_DIR$/public/assignment/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment/register.html" afterPath="$PROJECT_DIR$/public/assignment/register.html" />
-    </list>
+    <list default="true" id="0502e611-b640-4cd4-ab62-5d50843cb0cc" name="Default" comment="" />
     <ignored path="cs5610sprint2016.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -254,7 +246,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13489583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
