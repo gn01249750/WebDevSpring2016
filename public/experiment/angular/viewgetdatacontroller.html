@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TestApp" ng-controller="GG" ng-model="modeltest">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!-- Jquery Lib -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular-route.js"></script>
+    <script src="testapp.js"></script>
+</head>
+<body>
+    <div class="container-fluid" ng-controller="HelloWorldController">
+
+    <p>{{hello}} + {{hello2}}</p>
+
+    </div>
+
+    <div class="container-fluid" >
+
+        <p>dd{{hello2}} + {{hello}}</p>
+
+    </div>
+
+
+    <div class="col-xs-6">
+        <a href="#" ng-click="hello2 = 'd' + 'd'" class="btn btn-success">{{modeltest}}</a><br/>
+        2 + 3 = {{hello2}}
+    </div>
+
+    <div class="col-xs-8">
+    <div ng-controller = "NgModelController">
+    <input ng-model="author" class="form-control"/>
+    <button ng-click="setAuthor3(author)"
+            class="btn btn-primary btn-block">
+        Set Author
+    </button>
+    <h3>Author: {{theAuthor}}</h3>
+    </div>
+    </div>
+
+
+
+</body>
+</html>

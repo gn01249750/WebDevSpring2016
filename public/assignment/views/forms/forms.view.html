@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Form</h1>
+
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">Forms</a></li>
+                <li role="presentation"><a href="">Fields</a></li>
+            </ul>
+
+            <div class="table-responsive">
+            <table  class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th><span class="caret"></span> Form Name</th>
+                        <th><span class="caret"></span> Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <div class="col-md-1">
+                    <tr>
+                        <td class ="col-sm-6"><input ng-model="formInputField" type="text" name=""></td>
+                        <td><span ng-click="addForm(formInputField)" class="glyphicon glyphicon-plus btn-lg " aria-hidden="true"></span>
+                            <span ng-click="updateForm(formInputField)" class="glyphicon glyphicon-ok btn-lg" aria-hidden="true"></span></td>
+                    </tr>
+                    </div>
+                    <tr ng-repeat="form in allFormsByUser">
+                        <!--ng-class="{'success' : $index == selectedCourseIndex}">-->
+
+                        <td>{{form.title}}</td>
+                        <td>
+                            <span ng-click="deleteForm(form)" class="glyphicon glyphicon-remove btn-lg" aria-hidden="true"></span>
+                            <span ng-click="selectForm($index)" class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>
