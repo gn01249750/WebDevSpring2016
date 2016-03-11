@@ -1,0 +1,59 @@
+.grey-background{
+    background: #fff3e6;
+}
+
+.navbar{
+    background: #cc6900;
+}
+
+.icon-bar{
+    background: #ffff80;
+}
+
+.navbar-brand{
+    color: #ffff80;
+}
+
+
+.nav > li > a{
+    color: #ffff80;
+}
+
+a.list-group-item {
+    height:auto;
+    min-height:200px;
+}
+a.list-group-item.active small {
+    color:#fff;
+}
+
+.list-group-item img {
+    max-height:180px;
+    min-height:180px;
+    min-width:180px;
+    max-width:180px;
+}
+
+.inputDescription {
+    width: 100%;
+    height: 100px;
+
+}
+
+.modeltable
+{
+    word-wrap:break-word;
+}
+
+.modeltable input
+{
+    max-width:140px;
+}
+
+.imgthumb {
+    height: 120px;
+    width:120px;
+}
+
+
+

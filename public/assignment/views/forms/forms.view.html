@@ -17,13 +17,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <div class="col-md-1">
                     <tr>
                         <td class ="col-sm-6"><input ng-model="formInputField" type="text" name=""></td>
                         <td><span ng-click="addForm(formInputField)" class="glyphicon glyphicon-plus btn-lg " aria-hidden="true"></span>
                             <span ng-click="updateForm(formInputField)" class="glyphicon glyphicon-ok btn-lg" aria-hidden="true"></span></td>
                     </tr>
-                    </div>
+
                     <tr ng-repeat="form in allFormsByUser">
                         <!--ng-class="{'success' : $index == selectedCourseIndex}">-->
 

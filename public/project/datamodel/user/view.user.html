@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="BountyShopApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/projectcss.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
+    <script src="user.controller.js"></script>
+</head>
+<body class="grey-background" ng-controller="UserController">
+<div class="container">
+    <div class="row">
+        <div class="table-responsive">
+            <table  class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>UserName</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>UserType</th>
+                </tr>
+                </thead>
+                <tbody class="modeltable">
+                <tr>
+                    <td><input ng-model="user.username" type="text" name=""></td>
+                    <td><input ng-model="user.password" type="text" name=""></td>
+                    <td><input ng-model="user.email" type="email" name=""></td>
+                    <td><select ng-model="user.usertype">
+                        <option value="buyer">buyer</option>
+                        <option value="seller">seller</option>
+                        <option value="admin">admin</option>
+                    </select></td>
+                    <td><span ng-click="addUser(user)" class="glyphicon glyphicon-plus btn-lg " aria-hidden="true"></span>
+                        <span ng-click="updateUser(user)" class="glyphicon glyphicon-ok btn-lg" aria-hidden="true"></span></td>
+                </tr>
+
+                <tr ng-repeat="user in users">
+
+                    <td>{{user.username}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.usertype}}</td>
+                    <td>
+                        <span ng-click="deleteUser($index)" class="glyphicon glyphicon-remove btn-lg" aria-hidden="true"></span>
+                        <span ng-click="selectUser($index)" class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+            {{users}}
+        </div>
+    </div>
+</div>
+</body>
+</html>

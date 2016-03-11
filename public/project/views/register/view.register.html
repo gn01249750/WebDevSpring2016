@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/projectcss.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body class="grey-background">
+    <!-- Header Bar -->
+    <nav class="navbar navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../home/home.view.html">Bounty Shop</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../register/view.register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                    <li><a href="../login/view.login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-10 main">
+                <h1 class="page-header">Register</h1>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">Username</label>
+                        <div class="col-sm-4">
+                            <input ng-model="regi.Username" type="username" class="form-control" id="" placeholder="Username">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-4">
+                            <input ng-model="regi.Password" type="password" class="form-control" placeholder="Password">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Verify Password</label>
+                        <div class="col-sm-4">
+                            <input ng-model="regi.VerifyPassword" type="password" class="form-control" placeholder="Verify Password">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-4">
+                            <input ng-model="regi.Email" type="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">User Type</label>
+                        <div class="col-sm-4">
+                            <select class="form-control">
+                                <option value="volvo">Buyer</option>
+                                <option value="saab">Seller</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" ng-click="register(regi)" class="btn btn-default"><a href="#/profile">Register</a></button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

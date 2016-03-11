@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="BountyShopApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/projectcss.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
+    <script src="missionboard.controller.js"></script>
+
+
+</head>
+<body ng-controller="MissionBoardController" class="grey-background">
+    <!-- Header Bar -->
+    <nav class="navbar navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../home/home.view.html">Bounty Shop</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../register/view.register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                    <li><a href="../login/view.login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- content -->
+    <div class="container">
+        <div class="row">
+
+            <h1>Mission Board</h1>
+
+            <div class="form-group">
+                <label class="control-label">search</label>
+                <input  placeholder="Password">
+            </div>
+
+            <div ng-repeat="mission in missions" class="list-group">
+                <a href="#" class="list-group-item">
+                    <div class="media col-md-3">
+                        <figure class="pull-left">
+                            <img class="media-object img-rounded img-responsive"
+                                 ng-src="{{mission.image}}">
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-9">
+                            <h3> Watch </h3>
+                            <ul>
+                                <li>Quantity: {{mission.quantity}}</li>
+                                <li>Desired Date of Arrival: {{mission.date}}{/li>
+                                <li>Destination: {{mission.destination}}</li>
+                                <li>Unit Price Range: {{mission.price}}</li>
+                                <li>Description: {{mission.description}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--<div class="col-md-3 text-center">-->
+                        <!--<h2> 14240 <small> votes </small></h2>-->
+                        <!--<button type="button" class="btn btn-default btn-lg btn-block"> Vote Now! </button>-->
+                        <!--<div class="stars">-->
+                            <!--<span class="glyphicon glyphicon-star"></span>-->
+                            <!--<span class="glyphicon glyphicon-star"></span>-->
+                            <!--<span class="glyphicon glyphicon-star"></span>-->
+                            <!--<span class="glyphicon glyphicon-star"></span>-->
+                            <!--<span class="glyphicon glyphicon-star-empty"></span>-->
+                        <!--</div>-->
+                        <!--<p> Average 4.5 <small> / </small> 5 </p>-->
+                    <!--</div>-->
+                </a>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</body>
+</html>
