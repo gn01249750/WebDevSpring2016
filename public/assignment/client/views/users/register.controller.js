@@ -7,7 +7,7 @@
         .module("FormBuilderApp")
         .controller("RegisterController", RegisterController);
 
-    function RegisterController($scope, UserService, $rootScope)
+    function RegisterController($scope, UserService)
     {
 
         $scope.register = register;
@@ -19,8 +19,11 @@
                 password: regi.Password,
                 email: regi.Email
             };
-            console.log(regi.Email);
-            UserService.createUser(newUser,setCurUser);
+            UserService
+                .createUser(newUser)
+                .then(function(response){
+                    UserService.setCurUser(newUser);
+                })
         }
 
         function setCurUser(data)

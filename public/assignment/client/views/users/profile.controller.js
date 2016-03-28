@@ -9,7 +9,17 @@
 
     function ProfileController($scope, UserService, $rootScope)
     {
+        init();
         $scope.update = update;
+
+
+        function init()
+        {
+            if($rootScope.currentUser != null)
+            {
+                $scope.updatedUser = $rootScope.currentUser;
+            }
+        }
 
         function update(updatedUser) {
             if($rootScope.currentUser != null) {
@@ -22,14 +32,14 @@
                     lastName: updatedUser.lastName,
                     email: updatedUser.email
                 };
+                UserService
+                    .updateUser(curId, newUser)
+                    .then(function(response){
+                            console.log("dd");
+                            UserService.setCurUser(newUser);
 
-                UserService.updateUser(curId, newUser, setCurUser);
+                    });
             }
-        }
-
-        function setCurUser(data)
-        {
-            $rootScope.currentUser = data;
         }
 
 

@@ -5,7 +5,7 @@
 
             <ul class="nav nav-tabs">
                 <li role="presentation" class="active"><a href="">Forms</a></li>
-                <li role="presentation"><a href="">Fields</a></li>
+                <li role="presentation"><a href="#/fields">Fields</a></li>
             </ul>
 
             <div class="table-responsive">
@@ -26,15 +26,16 @@
                     <tr ng-repeat="form in allFormsByUser">
                         <!--ng-class="{'success' : $index == selectedCourseIndex}">-->
 
-                        <td>{{form.title}}</td>
+                        <td><a href="#/forms/{{form._id}}/fields">{{form.title}}</a></td>
                         <td>
-                            <span ng-click="deleteForm(form)" class="glyphicon glyphicon-remove btn-lg" aria-hidden="true"></span>
+                            <span ng-click="deleteForm(form, $index)" class="glyphicon glyphicon-remove btn-lg" aria-hidden="true"></span>
                             <span ng-click="selectForm($index)" class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
                         </td>
                     </tr>
                 </tbody>
                 </table>
             </div>
+            {{allFormsByUser}}
 
 
         </div>

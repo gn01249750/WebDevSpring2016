@@ -1,0 +1,218 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Form: Registration Form</h1>
+
+            <ul class="nav nav-tabs">
+                <li role="presentation"><a href="#/forms">Forms</a></li>
+                <li role="presentation" class="active"><a href="#">Fields</a></li>
+            </ul>
+
+            <div class="form-group">
+                <div ng-repeat="field in allFieldsInForm">
+                    <p class="col-sm-12">{{field.label}}: </p>
+                    <div class="col-sm-6">
+                        <div ng-switch="field.type">
+                            <div ng-switch-when="TEXT">
+                                <input type="text" class="form-control" placeholder={{field.placeholder}}>
+                            </div>
+                            <div ng-switch-when="OPTIONS">
+                                <select ng-model="selectedOption" ng-options="item.label for item in field.options">
+                                </select>
+                            </div>
+                            <div ng-switch-when="EMAIL">
+                                <input type="email" class="form-control" placeholder={{field.placeholder}}>
+                            </div>
+                            <div ng-switch-when="TEXTAREA">
+                                <textarea class="form-control" placeholder={{field.placeholder}}></textarea>
+                            </div>
+                            <div ng-switch-when="DATE">
+                                <input class="form-control" type={{field.type}} name="bday">
+                            </div>
+                            <div ng-switch-when="CHECKBOXES">
+                                <form ng-repeat="checkboxOption in field.options">
+                                    <input  type="checkbox"> {{checkboxOption.label}}
+                                </form>
+                            </div>
+                            <div ng-switch-when="RADIOS">
+                                <form ng-repeat="radioBoxOption in field.options">
+                                    <input  type="radio"> {{radioBoxOption.label}}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+
+                    </div>
+                    <div class="col-sm-5">
+                        <span class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true" data-toggle="modal"
+                              data-target="#myModal" ng-click="passArgs($index)"></span>
+                        <span class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
+                        <span ng-click="deleteField($index)" class="glyphicon glyphicon-remove btn-lg " aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-align-justify btn-lg" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12">
+                    <hr>
+                </div>
+                <p class="col-sm-12">Add New Field:</p>
+                <div class="col-sm-6">
+                    <select ng-model="model.fieldType">
+                        <option value="singleLineOption">Single Line Text</option>
+                        <option value="Date">Date</option>
+                        <option value="Dropdown">Dropdown</option>
+                        <option value="Checkboxes">Checkboxes</option>
+                        <option value="Radiobuttons">Radio Buttons</option>
+                        <option value="ParagraphText">Paragraph Text Field</option>
+                    </select>
+                </div>
+                <div class="col-sm-1">
+
+                </div>
+                <div class="col-sm-5">
+                    <span ng-click="addField(model.fieldType)" class="glyphicon glyphicon-plus btn-lg" aria-hidden="true"></span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">{{chosenForm.label}}</h4>
+                        </div>
+                        <div class="modal-body" ng-switch="chosenField.type">
+                            <div ng-switch-when="TEXT">
+                                <div class="form-group">
+                                    <p>Label</p>
+                                    <input type="text" class="form-control" ng-model="chosenField.label"}>
+                                    <p>Placeholder</p>
+                                    <input type="text" class="form-control" ng-model="chosenField.placeholder"}>
+                                </div>
+                            </div>
+                            <div ng-switch-when="TEXTAREA">
+                                <div class="form-group">
+                                    <p>Label</p>
+                                    <input type="text" class="form-control" ng-model="chosenField.label"}>
+                                    <p>Placeholder</p>
+                                    <input type="text" class="form-control" ng-model="chosenField.placeholder"}>
+                                </div>
+                            </div>
+                            <div ng-switch-when="OPTIONS">
+                                <div class="form-group">
+                                    <p>Label</p>
+                                    <input type="text" class="form-control"
+                                           ng-model="chosenField.label">
+                                    <br>
+                                    <p>Options</p>
+                                    <textarea class="form-control"
+                                              ng-model="chosenField.options"></textarea>
+                                </div>
+                            </div>
+                            <div ng-switch-when="CHECKBOXES">
+                                <div class="form-group">
+                                    <p>Label</p>
+                                    <input type="text" class="form-control"
+                                           ng-model="chosenField.label">
+                                    <br>
+                                    <p>Options</p>
+                                    <textarea class="form-control"
+                                              ng-model="chosenField.options"></textarea>
+                                </div>
+                            </div>
+                            <div ng-switch-when="RADIOS">
+                                <div class="form-group">
+                                    <p>Label</p>
+                                    <input type="text" class="form-control"
+                                           ng-model="chosenField.label">
+                                    <br>
+                                    <p>Options</p>
+                                    <textarea class="form-control"
+                                              ng-model="chosenField.options"></textarea>
+                                </div>
+                            </div>
+                            <div ng-switch-when="DATE">
+                                <div class="form-group">
+                                    <p>Label</p>
+                                    <input type="text" class="form-control"
+                                           ng-model="chosenField.label">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"
+                                    ng-click="updateFromModal(chosenField)">Update</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+
+
+                    <!--<div ng-switch-when="EMAIL">-->
+                        <!--<div class="modal-header">-->
+                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                            <!--<h4 class="modal-title">{{chosenForm.label}}</h4>-->
+                        <!--</div>-->
+                        <!--<div class="modal-body">-->
+                            <!--<h1>ganasai</h1>-->
+                        <!--</div>-->
+                        <!--<div class="modal-footer">-->
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div ng-switch-when="TEXTAREA">-->
+                        <!--<div class="modal-header">-->
+                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                            <!--<h4 class="modal-title">{{chosenForm.label}}</h4>-->
+                        <!--</div>-->
+                        <!--<div class="modal-body">-->
+                            <!--<h1>ganasai</h1>-->
+                        <!--</div>-->
+                        <!--<div class="modal-footer">-->
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div ng-switch-when="DATE">-->
+                        <!--<div class="modal-header">-->
+                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                            <!--<h4 class="modal-title">{{chosenForm.label}}</h4>-->
+                        <!--</div>-->
+                        <!--<div class="modal-body">-->
+                            <!--<h1>ganasai</h1>-->
+                        <!--</div>-->
+                        <!--<div class="modal-footer">-->
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div ng-switch-when="CHECKBOXES">-->
+                        <!--<div class="modal-header">-->
+                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                            <!--<h4 class="modal-title">{{chosenForm.label}}</h4>-->
+                        <!--</div>-->
+                        <!--<div class="modal-body">-->
+                            <!--<h1>ganasai</h1>-->
+                        <!--</div>-->
+                        <!--<div class="modal-footer">-->
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div ng-switch-when="RADIOS">-->
+                        <!--<div class="modal-header">-->
+                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                            <!--<h4 class="modal-title">{{chosenForm.label}}</h4>-->
+                        <!--</div>-->
+                        <!--<div class="modal-body">-->
+                            <!--<h1>ganasai</h1>-->
+                        <!--</div>-->
+                        <!--<div class="modal-footer">-->
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
