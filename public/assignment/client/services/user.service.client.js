@@ -93,7 +93,7 @@
                 username : user.username,
                 password : user.password,
                 roles : user.roles,
-                email : user.email
+                emails : user.emails
             };
             return $http.post("/api/assignment/user", newUser);
         }

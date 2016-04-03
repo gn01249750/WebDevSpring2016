@@ -25,6 +25,8 @@
                 .getAllFormsTest()
                 .then(function(response){
                     $scope.testt = response.data;
+                },function(err){
+                    console.log("Error: " + err);
                 })
         }
 
@@ -34,9 +36,9 @@
                 .deleteFormById(form._id)
                 .then(function(response){
                     $scope.allFormsByUser.splice(index,1);
+                },function(err){
+                    console.log("Error: " + err);
                 })
-
-
         }
 
         function selectForm(index)
@@ -53,6 +55,8 @@
                     if(response.data){
                         $scope.allFormsByUser = response.data;
                     }
+                },function(err){
+                    console.log("Error: " + err);
                 });
         }
 
@@ -68,14 +72,16 @@
                 .createFormForUser($rootScope.currentUser._id,formInputField)
                 .then(function(response){
                     allForms();
+                },function(err){
+                    console.log("Error: " + err);
                 })
 
         }
 
-        function addToForms(data)
-        {
-            FormService.createFormForUser()
-        }
+        //function addToForms(data)
+        //{
+        //    FormService.createFormForUser()
+        //}
 
         function updateForm(formInputField)
         {
@@ -91,6 +97,8 @@
                     .then(function(response){
                         selectedForm = null;
                         allForms();
+                    },function(err){
+                        console.log("Error: " + err);
                     })
             }
         }

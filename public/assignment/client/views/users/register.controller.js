@@ -17,12 +17,20 @@
             var newUser = {
                 username: regi.Username,
                 password: regi.Password,
-                email: regi.Email
+                emails: regi.Emails
+
             };
             UserService
                 .createUser(newUser)
                 .then(function(response){
-                    UserService.setCurUser(newUser);
+                    return UserService.findUserByCredentials(newUser.username, newUser.password);
+                }, function(err){
+                    console.log("Error: " + err);
+                })
+                .then(function(curUser){
+                    UserService.setCurUser(curUser.data);
+                }, function(err){
+                    console.log("Error: " + err);
                 })
         }
 

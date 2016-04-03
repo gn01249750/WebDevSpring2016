@@ -20,9 +20,12 @@
             UserService
                 .findUserByCredentials(username, password)
                 .then(function(response){
-                    if(response.data) {
+                    if(response) {
                         UserService.setCurUser(response.data);
                     }
+                },
+                function(err){
+                    console.log(err);
                 });
         }
 

@@ -12,45 +12,69 @@ module.exports = function(app, model)
 
     function getAllForm(req, res)
     {
-        var forms = model.findAllForm();
-        res.status(200).send(forms);
+        model.findAllForm()
+            .then(function(response){
+                res.status(200).send(response);
+            }, function(err){
+                res.status(400).send(err);
+            });
     }
 
     function getFormByUserId(req, res)
     {
         var userId = req.params["userId"];
-        var form = model.getFormByUserId(userId);
-        res.status(200).send(form);
+        model.getFormByUserId(userId)
+            .then(function(response){
+                res.status(200).send(response);
+            }, function(err){
+                res.status(400).send(err);
+            });
     }
 
     function getFormByFormId(req, res)
     {
         var formId = req.params["formId"];
-        var form = model.getFormByFormId(formId);
-        res.status(200).send(form);
+        model.getFormByFormId(formId)
+            .then(function(response){
+                res.status(200).send(response);
+            }, function(err){
+                res.status(400).send(err);
+            });
     }
 
     function deleteFormByFormId(req,res)
     {
         var formId = req.params["formId"];
-        model.deleteFormByFormId(formId);
-        res.status(200).send("");
+        model.deleteFormByFormId(formId)
+            .then(function(response){
+                res.status(200).send(response);
+            }, function(err){
+                res.status(400).send(err);
+            });
     }
 
     function addForm(req, res)
     {
         var userId = req.params["userId"];
         var form = req.body;
-        model.createForm(userId, form);
-        res.status(200).send("");
+        model.createForm(userId, form)
+            .then(function(response){
+                res.status(200).send(response);
+            }, function(err){
+                res.status(400).send(err);
+            });
     }
 
     function updateFormByFormId(req, res)
     {
         var id2 = req.params["formId"];
         var form = req.body;
-        model.updateFormByFormId(id2,form);
-        res.status(200).send("");
+        model.updateFormByFormId(id2,form)
+            .then(function(response){
+                res.status(200).send(response);
+            }, function(err){
+                res.status(400).send(err);
+            });
     }
 
 }

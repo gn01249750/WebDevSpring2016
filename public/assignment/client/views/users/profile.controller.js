@@ -30,14 +30,16 @@
                     password: updatedUser.password,
                     firstName: updatedUser.firstName,
                     lastName: updatedUser.lastName,
-                    email: updatedUser.email
+                    emails: updatedUser.emails
                 };
+                console.log(updatedUser.emails);
                 UserService
                     .updateUser(curId, newUser)
                     .then(function(response){
-                            console.log("dd");
                             UserService.setCurUser(newUser);
 
+                    }, function(err){
+                        console.log("Error: " + err);
                     });
             }
         }

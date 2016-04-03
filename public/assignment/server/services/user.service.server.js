@@ -13,15 +13,23 @@ module.exports = function(app, model)
     {
         var id2 = req.params["id"];
         var user = req.body;
-        model.updateUser(id2,user);
-        res.status(200).send("");
+        model.updateUser(id2,user)
+            .then(function(response){
+                res.status(200).send("");
+            }, function(err){
+                res.status(400).send(err);
+            });
     }
 
     function deleteUserById(req,res)
     {
         var id2 = req.params["id"];
-        model.deleteUser(id2);
-        res.status(200).send("");
+        model.deleteUser(id2)
+            .then(function(response){
+                res.status(200).send("");
+            }, function(err){
+                res.send(err);
+            })
     }
 
     function getterHelper(req,res)
@@ -31,30 +39,50 @@ module.exports = function(app, model)
         if(username2 != null && password2 != null)
         {
             var credential = {"username":username2, "password":password2};
-            var user = model.findUserByCredentials(credential);
-            res.status(200).send(user);
+            model.findUserByCredentials(credential)
+                .then(function(response){
+                    res.status(200).json(response);
+                }, function(err){
+                    res.status(400).send(err);
+                });
         }else if(username2 != null)
         {
-            var user = model.findUserByUsername(username2);
-            res.status(200).send(user);
+            model.findUserByUsername(username2)
+                .then(function(response){
+                    res.status(200).json(response);
+                }, function(err){
+                    res.status(400).send(err);
+                });
         }else{
-            var users = model.findAllUser();
-            res.status(200).send(users);
+            model.findAllUser()
+                .then(function(response){
+                    res.status(200).json(response);
+                }, function(err){
+                    res.status(400).send(err);
+                });
         }
     }
 
     function addUser(req,res)
     {
         var user = req.body;
-        var users = model.createUser(user);
-        res.status(200).send(users);
+        model.createUser(user)
+            .then(function(response){
+                res.status(200).send(response);
+            }, function(err){
+                res.status(400).send(err);
+            })
     }
 
     function getUserById(req,res)
     {
         var idd = req.params["id"];
-        var user = model.findUserById(idd);
-        res.status(200).json(user);
+        model.findUserById(idd)
+            .then(function(response){
+                res.status(200).send(response);
+            }, function(err){
+                res.status(400).send(err);
+            })
     }
 }
 

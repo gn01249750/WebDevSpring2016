@@ -22,10 +22,17 @@
         {
             var formId = $routeParams.formId;
             var fieldId = newField._id;
+            if(newField.options){
+                console.log(newField.options);
+                newField.options = newField.options.toString().split("\n");
+                console.log(newField.options);
+            }
+            console.log(newField);
             FieldService
                 .updateField(formId, newField._id, newField)
                 .then(function(response){
-                    $scope.allFieldsInForm[$scope.chosenFormIndex] = newField;
+                    //$scope.allFieldsInForm[$scope.chosenFormIndex] = newField;
+                    getFormForFields();
                     $scope.chosenFormIndex = -1;
                     $scope.chosenField = null;
                 })
@@ -33,12 +40,19 @@
 
         function passArgs(index)
         {
+            var tempString = null;
+            if($scope.allFieldsInForm[index].options.length>0){
+                tempString = $scope.allFieldsInForm[index].options[0].label;
+                for(i = 1; i < $scope.allFieldsInForm[index].options.length; i++){
+                    tempString = tempString + "\n" + $scope.allFieldsInForm[index].options[i].label;
+                }
+            }
             var newField =
             {   "_id": $scope.allFieldsInForm[index]._id,
                 "label": $scope.allFieldsInForm[index].label,
                 "type": $scope.allFieldsInForm[index].type,
                 "placeholder": $scope.allFieldsInForm[index].placeholder,
-                "options": $scope.allFieldsInForm[index].options
+                "options": tempString
             };
             $scope.chosenFormIndex = index;
             $scope.chosenField = newField;

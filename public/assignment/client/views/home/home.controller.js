@@ -34,7 +34,6 @@
                 .then(function(response)
                 {
                     $scope.allUsers = response.data;
-                    console.log($scope.allUsers);
                 });
         }
 
@@ -44,9 +43,7 @@
             UserService.findAllUsers()
                 .then(function(response)
                 {
-                    //console.log(response);
                     $scope.allUsers = response.data;
-                    console.log($scope.allUsers);
                 });
         }
 
