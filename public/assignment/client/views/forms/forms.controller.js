@@ -90,7 +90,8 @@
                 {
                     _id: selectedForm._id,
                     title: formInputField,
-                    userId: selectedForm.userId
+                    userId: selectedForm.userId,
+                    fields: selectedForm.fields
                 };
                 FormService
                     .updateFormById(selectedForm._id, newForm)
