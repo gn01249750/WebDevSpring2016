@@ -7,13 +7,23 @@
         .module("FormBuilderApp")
         .controller("HeaderController", HeaderController);
 
-    function HeaderController($scope,$rootScope)
+    function HeaderController($scope,$rootScope, UserService, $location)
     {
         $scope.isAdmin = isAdmin;
         $scope.userLogOut = userLogOut;
 
         function userLogOut() {
-            $rootScope.currentUser = null;
+            UserService
+                .logout()
+                .then(
+                    function(response){
+                        $rootScope.currentUser = null;
+                        $location.url("/home");
+                    },
+                    function(err) {
+                        console.log(err);
+                    }
+                );
         }
 
         function isAdmin() {

@@ -63,7 +63,10 @@
             deleteUserById: deleteUserById,
             updateUser: updateUser,
             findUserByUsername: findUserByUsername,
-            setCurUser: setCurUser
+            setCurUser: setCurUser,
+            register: register,
+            logout: logout,
+            login: login
         };
 
         return service;
@@ -111,6 +114,22 @@
         function setCurUser(data)
         {
             $rootScope.currentUser = data;
+        }
+
+        function login(user)
+        {
+            console.log("login clinet");
+            return $http.post("/api/assignment/login", user);
+        }
+
+        function register(user)
+        {
+            return $http.post("/api/assignment/register", user);
+        }
+
+        function logout()
+        {
+            return $http.post("/api/assignment/logout");
         }
 
     }

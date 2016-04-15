@@ -112,8 +112,9 @@ module.exports = function(db, mongoose) {
 
     function findUserByUsername(username)
     {
+
         var deferred = q.defer();
-        UserModel.find({"username": username}, function(err, result){
+        UserModel.findOne({"username": username}, function(err, result){
             if(err){
                 deferred.reject(err);
             }else{
@@ -139,6 +140,8 @@ module.exports = function(db, mongoose) {
 
     function createUser(user)
     {
+        console.log("creaing new usering!!!");
+        console.log(user);
         var deferred = q.defer();
         var emailTemp = null;
         if(user.emails)
