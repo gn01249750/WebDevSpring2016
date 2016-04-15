@@ -56,6 +56,7 @@ module.exports = function(app, model, passport)
     }
 
     function deserializeUser(user, done) {
+        console.log(user._id);
         model
             .findUserById(user._id)
             .then(

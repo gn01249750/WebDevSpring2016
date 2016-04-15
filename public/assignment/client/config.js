@@ -22,7 +22,10 @@
             })
             .when("/profile", {
                 templateUrl: "views/users/profile.view.html",
-                controller: "ProfileController"
+                controller: "ProfileController",
+                resolve: {
+                    loggedin: checkLoggedin
+                }
             })
             .when("/admin", {
                 templateUrl: "views/admin/admin.view.html",
@@ -44,4 +47,28 @@
                 redirectTo: "/home"
             });
     }
+
+
+    var checkLoggedin = function($q, $http, $location, $rootScope)
+    {
+        var deferred = $q.defer();
+        $http.get('/api/assignment/loggedin')
+            .then(function(user)
+            {
+                console.log(user.data[0]);
+                if (user !== '0')
+                {
+                    $rootScope.currentUser = user.data[0];
+
+                    deferred.resolve();
+                }
+                else
+                {
+                    deferred.reject();
+                    $location.url('/login');
+                }
+            });
+
+        return deferred.promise;
+    };
 })();
