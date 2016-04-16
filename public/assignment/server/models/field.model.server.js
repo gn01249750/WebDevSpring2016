@@ -27,29 +27,39 @@ module.exports = function(db, mongoose) {
                     deferred.reject(err);
                 }else{
                     var fields = result.fields;
-                    console.log(newField.options);
+
+                    //console.log(formId);
+                    //console.log(fieldId);
+                    console.log(fields);
+
                     if(newField.options){
+                        console.log("in options");
                         //newField.options = newField.options.split(",");
                         var temp = [];
                         for(i = 0; i< newField.options.length; i++){
                             temp.push({label: newField.options[i], value: uuid.v1()});
                         }
-                        console.log(temp);
                         newField.options = temp;
                     }
                     for(i = 0; i<fields.length; i++)
                     {
                         if(fields[i]._id == fieldId)
                         {
+                            console.log("id matched");
+                            console.log(fields);
+                            console.log(fields[i]);
+                            console.log(newField);
                             fields[i] = newField;
                             FormModel.update({_id: formId}, {fields: fields},
                             function(err,result){
                                 if(err){
                                     deferred.reject(err);
                                 }else{
+                                    console.log("success");
                                     deferred.resolve(result);
                                 }
                             });
+                            break;
                         }
                     }
                 }

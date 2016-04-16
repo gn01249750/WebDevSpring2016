@@ -43,7 +43,8 @@ module.exports = function(db, mongoose) {
     function updateUser(id, user)
     {
         var deferred = q.defer();
-
+        console.log("in model");
+        console.log(user.roles);
         var emailTemp = null;
         if(user.emails)
         {
@@ -56,9 +57,10 @@ module.exports = function(db, mongoose) {
                 username: user.username,
                 password: user.password,
                 firstName: user.firstName,
-                lastName: user.firstName,
+                lastName: user.lastName,
                 emails: emailTemp,
-                phones: user.phones
+                phones: user.phones,
+                roles: user.roles
             },
             function(err, results){
                 if(err){
@@ -140,29 +142,28 @@ module.exports = function(db, mongoose) {
 
     function createUser(user)
     {
-        console.log("creaing new usering!!!");
-        console.log(user);
         var deferred = q.defer();
-        var emailTemp = null;
-        if(user.emails)
-        {
-            emailTemp = user.emails.split(",");
-        }
+        //var emailTemp = null;
+        //if(user.emails)
+        //{
+        //    emailTemp = user.emails.split(",");
+        //}
 
         var newUser = new UserModel({
             "username": user.username,
             "password": user.password,
             "firstName": user.firstName,
             "lastName": user.lastName,
-            "emails": emailTemp,
-            "phones": [user.phones]
+            "emails": user.emails,
+            "phones": [user.phones],
+            "roles": user.roles
         });
-
+        console.log(newUser);
         // save movie to database
         newUser.save(function (err, doc) {
             if (err) {
                 // reject promise if error
-                defferred.reject(err)
+                deferred.reject(err)
             } else {
                 // resolve promise
                 deferred.resolve(doc);

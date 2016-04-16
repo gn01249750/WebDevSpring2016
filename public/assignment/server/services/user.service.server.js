@@ -56,7 +56,6 @@ module.exports = function(app, model, passport)
     }
 
     function deserializeUser(user, done) {
-        console.log(user._id);
         model
             .findUserById(user._id)
             .then(
@@ -70,7 +69,6 @@ module.exports = function(app, model, passport)
     }
 
     function login(req, res) {
-        console.log("in log in");
         var user = req.user;
         res.json(user);
     }
@@ -92,7 +90,6 @@ module.exports = function(app, model, passport)
             .findUserByUsername(newUser.username)
             .then(
                 function(user){
-                    console.log(user);
                     if(user) {
                         res.json(null);
                     } else {

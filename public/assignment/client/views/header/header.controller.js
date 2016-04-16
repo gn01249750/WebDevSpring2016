@@ -34,7 +34,7 @@
                     return false;
                 }
                 for(i = 0; i < $rootScope.currentUser.roles.length; i++){
-                    if($rootScope.currentUser.roles[i] == "admin"){
+                    if($rootScope.currentUser.roles[i].replace(/\s/g, '') == "admin"){
                         return true;
                     }
                 }

@@ -26,6 +26,9 @@ module.exports = function(app, model)
         var formId = req.params["formId"];
         var fieldId = req.params["fieldId"];
         var newField = req.body;
+
+
+
         model.updateField(formId, fieldId, newField)
             .then(function(response){
                 res.status(200).send(response);

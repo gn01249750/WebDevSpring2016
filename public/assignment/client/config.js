@@ -29,19 +29,31 @@
             })
             .when("/admin", {
                 templateUrl: "views/admin/admin.view.html",
-                controller: "MainController"
+                controller: "adminController",
+                resolve: {
+                    loggedin: checkAdmin
+                }
             })
             .when("/forms", {
                 templateUrl: "views/forms/forms.view.html",
-                controller: "FormController"
+                controller: "FormController",
+                resolve: {
+                    loggedin: checkLoggedin
+                }
             })
             .when("/fields", {
                 templateUrl: "views/forms/fields.view.html",
-                controller: "FieldController"
+                controller: "FieldController",
+                resolve: {
+                    loggedin: checkLoggedin
+                }
             })
             .when("/forms/:formId/fields", {
                 templateUrl: "views/forms/fields.view.html",
-                controller: "FieldController"
+                controller: "FieldController",
+                resolve: {
+                    loggedin: checkLoggedin
+                }
             })
             .otherwise({
                 redirectTo: "/home"
@@ -56,7 +68,7 @@
             .then(function(user)
             {
                 console.log(user.data[0]);
-                if (user !== '0')
+                if (user.data[0] != '0')
                 {
                     $rootScope.currentUser = user.data[0];
 
@@ -68,6 +80,30 @@
                     $location.url('/login');
                 }
             });
+
+        return deferred.promise;
+    };
+
+    var checkAdmin = function($q, $rootScope, $http)
+    {
+        var deferred = $q.defer();
+
+        $http.get('/api/assignment/loggedin')
+            .then(
+                function (response) {
+                    console.log(response);
+                    var user = response.data;
+                    if (user !== '0' && user[0].roles.indexOf('admin') != -1) {
+                        $rootScope.currentUser = user[0];
+                        deferred.resolve();
+                    }else{
+                        deferred.reject();
+                        $location.url('/login');
+                    }
+                },
+                function (err) {
+                    deferred.reject();
+                });
 
         return deferred.promise;
     };

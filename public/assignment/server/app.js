@@ -8,5 +8,6 @@ module.exports = function(app, db, mongoose, passport)
     var fieldModel = require("./models/field.model.server.js")(db, mongoose);
     require("./services/user.service.server.js")(app,userModel, passport);
     require("./services/field.service.server.js")(app, fieldModel);
-    require("./services/form.service.js")(app,formModel);
+    require("./services/form.service.server.js")(app,formModel);
+    require("./services/admin.service.server.js")(app, userModel);
 }

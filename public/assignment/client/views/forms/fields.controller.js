@@ -23,9 +23,9 @@
             var formId = $routeParams.formId;
             var fieldId = newField._id;
             if(newField.options){
-                console.log(newField.options);
                 newField.options = newField.options.toString().split("\n");
-                console.log(newField.options);
+            }else{
+                newField.options = [];
             }
             console.log(newField);
             FieldService
