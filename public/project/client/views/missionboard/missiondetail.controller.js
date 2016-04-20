@@ -5,9 +5,9 @@
 {
     angular
         .module("BountyShopApp", [])
-        .controller("MissionBoardController", MissionBoardController);
+        .controller("MissionDetailController", MissionDetailController);
 
-    function MissionBoardController($scope)
+    function MissionDetailController($scope)
     {
         $scope.selectedIndex = -1;
         var missions = [
