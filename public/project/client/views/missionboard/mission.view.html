@@ -1,0 +1,69 @@
+<!--<!DOCTYPE html>-->
+<!--<html ng-app="BountyShopApp" lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="../../client/css/projectcss.css">-->
+
+    <!--&lt;!&ndash; jQuery library &ndash;&gt;-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
+
+    <!--&lt;!&ndash; Latest compiled JavaScript &ndash;&gt;-->
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>-->
+    <!--<script src="missiondetail.controller.js"></script>-->
+<!--</head>-->
+<!--<body class="grey-background" ng-controller="MissionBoardController">-->
+    <div class="container">
+        <div class="row">
+            <div class="table-responsive">
+                <table  class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Mission Name</th>
+                        <th>Quantity Wanted</th>
+                        <th>Desination</th>
+                        <th>Date Wanted</th>
+                        <th>Price Range</th>
+                        <th> Description</th>
+                        <th> Image</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody class="modeltable">
+                        <tr>
+                            <td><input ng-model="mission.name" type="text" name=""></td>
+                            <td><input ng-model="mission.quantity" type="text" name=""></td>
+                            <td><input ng-model="mission.destination" type="text"></td>
+                            <td><input ng-model="mission.date" type="date" name=""></td>
+                            <td><input ng-model="mission.price" type="text" name=""></td>
+                            <td><textarea class="inputDescription" ng-model="missioncomment"></textarea></td>
+                            <td><input ng-model="mission.image" type="url" name="">image url</td>
+                            <td><span ng-click="addMission(mission)" class="glyphicon glyphicon-plus btn-lg " aria-hidden="true"></span>
+                                <span ng-click="updateMission(mission)" class="glyphicon glyphicon-ok btn-lg" aria-hidden="true"></span></td>
+                        </tr>
+
+                    <tr ng-repeat="mission in missions">
+                        <!--ng-class="{'success' : $index == selectedCourseIndex}">-->
+
+                        <td>{{mission.name}}</td>
+                        <td>{{mission.quantity}}</td>
+                        <td>{{mission.destination}}</td>
+                        <td>{{mission.date | date: "yyyy-MM-dd"}}</td>
+                        <td>{{mission.price}}</td>
+                        <td>{{mission.description}}</td>
+                        <td><img class="imgthumb" ng-src="{{mission.image}}"></td>
+                        <td>
+                            <span ng-click="deleteMission($index)" class="glyphicon glyphicon-remove btn-lg" aria-hidden="true"></span>
+                            <span ng-click="selectMission($index)" class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+<!--</body>-->
+<!--</html>-->

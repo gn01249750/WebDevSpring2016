@@ -1,16 +1,14 @@
-/**
- * Created by PO on 3/9/2016.
- */
-(function()
-{
+
+(function(){
     angular
-        .module("BountyShopApp", [])
+        .module("BountyShopApp")
         .controller("MissionBoardController", MissionBoardController);
 
     function MissionBoardController($scope)
     {
         var missions = [
             {
+                "_id": "2",
                 "name":"watch",
                 "quantity":"1",
                 "date":"2016",
@@ -20,6 +18,7 @@
                 "image": "http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg"
             },
             {
+                "_id": "2",
                 "name":"toys",
                 "quantity":"2",
                 "date":"2016",
@@ -34,4 +33,6 @@
 
 
     }
+
+
 })();

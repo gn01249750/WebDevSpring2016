@@ -84,14 +84,13 @@
         return deferred.promise;
     };
 
-    var checkAdmin = function($q, $rootScope, $http)
+    var checkAdmin = function($q, $rootScope, $http, $location)
     {
         var deferred = $q.defer();
 
         $http.get('/api/assignment/loggedin')
             .then(
                 function (response) {
-                    console.log(response);
                     var user = response.data;
                     if (user !== '0' && user[0].roles.indexOf('admin') != -1) {
                         $rootScope.currentUser = user[0];

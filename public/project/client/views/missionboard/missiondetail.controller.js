@@ -1,11 +1,9 @@
-/**
- * Created by PO on 3/9/2016.
- */
-(function()
-{
+
+(function(){
     angular
-        .module("BountyShopApp", [])
+        .module("BountyShopApp")
         .controller("MissionDetailController", MissionDetailController);
+
 
     function MissionDetailController($scope)
     {
@@ -97,6 +95,7 @@
 
 
     }
+
 })();/**
  * Created by PO on 3/10/2016.
  */

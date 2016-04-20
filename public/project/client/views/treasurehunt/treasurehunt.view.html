@@ -1,42 +1,42 @@
-<!DOCTYPE html>
-<html ng-app="BountyShopApp" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/projectcss.css">
+<!--<!DOCTYPE html>-->
+<!--<html ng-app="BountyShopApp" lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+    <!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="../../css/projectcss.css">-->
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!--&lt;!&ndash; jQuery library &ndash;&gt;-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
 
-    <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!--&lt;!&ndash; Latest compiled JavaScript &ndash;&gt;-->
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
-    <script src="treasurehunt.controller.js"></script>
-</head>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>-->
+    <!--<script src="treasurehunt.controller.js"></script>-->
+<!--</head>-->
 
-<body ng-controller="TreasurehuntController" class="grey-background">
-    <!-- Header Bar -->
-    <nav class="navbar navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../home/home.view.html">Bounty Shop</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../register/register.view.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                    <li><a href="../login/login.view.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<!--<body ng-controller="TreasurehuntController" class="grey-background">-->
+    <!--&lt;!&ndash; Header Bar &ndash;&gt;-->
+    <!--<nav class="navbar navbar">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="navbar-header">-->
+                <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                <!--</button>-->
+                <!--<a class="navbar-brand" href="../home/home.view.html">Bounty Shop</a>-->
+            <!--</div>-->
+            <!--<div class="collapse navbar-collapse" id="myNavbar">-->
+                <!--<ul class="nav navbar-nav navbar-right">-->
+                    <!--<li><a href="../register/register.view.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>-->
+                    <!--<li><a href="../login/login.view.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</nav>-->
 
 
     <h1>Treasure Hunt</h1>
@@ -46,10 +46,8 @@
         <input  placeholder="Password">
     </div>
 
-    {{ddd}}
-
     <div ng-repeat="item in listedItems" class="list-group">
-        <a href="#" class="list-group-item">
+        <a href="#/treasurehunt/{{item._id}}/treasure" class="list-group-item">
             <div class="media col-md-3">
                 <figure class="pull-left">
                     <img class="media-object img-rounded img-responsive"
@@ -85,5 +83,5 @@
             <!--</div>-->
         </a>
     </div>
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
