@@ -6,6 +6,12 @@
     background: #cc6900;
 }
 
+
+.btn-primary{
+    background: #cc6900;
+    color: #ffff80;
+}
+
 .icon-bar{
     background: #ffff80;
 }
@@ -19,12 +25,26 @@
     color: #ffff80;
 }
 
-a.list-group-item {
+div.list-group-item {
     height:auto;
     min-height:200px;
+    background: #fff3ef;
+
 }
 a.list-group-item.active small {
     color:#fff;
+}
+
+.homee img {
+    max-height:600px;
+    min-height:600px;
+    min-width:600px;
+    max-width:600px;
+}
+
+.panel-info>.panel-heading{
+    background-color:#cc6520;
+    color: white;
 }
 
 .list-group-item img {

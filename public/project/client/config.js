@@ -28,13 +28,10 @@
                 templateUrl: "views/treasurehunt/treasurehunt.view.html",
                 controller: "TreasurehuntController"
             })
-            //.when("/profile", {
-            //    templateUrl: "views/users/profile.view.html",
-            //    controller: "ProfileController",
-            //    resolve: {
-            //        loggedin: checkLoggedin
-            //    }
-            //})
+            .when("/profile", {
+                templateUrl: "views/profile/profile.view.html",
+                controller: "ProfileController"
+            })
             //.when("/admin", {
             //    templateUrl: "views/admin/admin.view.html",
             //    controller: "adminController",
@@ -56,7 +53,7 @@
             //        loggedin: checkLoggedin
             //    }
             //})
-            .when("/treasurehunt/:id/treasure", {
+            .when("/treasurehunt/:treasureId/treasure", {
                 templateUrl: "views/treasurehunt/treasure.view.html",
                 controller: "TreasureController"
                 //resolve: {

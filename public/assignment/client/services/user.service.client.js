@@ -117,7 +117,6 @@
 
         function login(user)
         {
-            console.log("login clinet");
             return $http.post("/api/assignment/login", user);
         }
 

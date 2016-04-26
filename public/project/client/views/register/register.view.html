@@ -71,19 +71,20 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">User Type</label>
                         <div class="col-sm-4">
-                            <select class="form-control">
-                                <option value="volvo">Buyer</option>
-                                <option value="saab">Seller</option>
+                            <select class="form-control" ng-model="regi.Role">
+                                <option value="buyer">Buyer</option>
+                                <option value="seller">Seller</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" ng-click="register(regi)" class="btn btn-default"><a href="#/profile">Register</a></button>
+                            <button type="submit" ng-click="register(regi)" class="btn btn-default">Register</button>
                         </div>
                     </div>
                 </form>
+                {{allUsers}}
 
             </div>
         </div>

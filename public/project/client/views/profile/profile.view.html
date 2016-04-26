@@ -1,63 +1,10 @@
-<!--<div class="container">-->
-    <!--<div class="row">-->
-        <!--<div class="table-responsive">-->
-            <!--<table  class="table table-bordered table-striped">-->
-                <!--<thead>-->
-                <!--<tr>-->
-                    <!--<th>Item Name</th>-->
-                    <!--<th>Quantity Left</th>-->
-                    <!--<th>Desination and Price</th>-->
-                    <!--<th> Description</th>-->
-                    <!--<th> Image</th>-->
-                    <!--<th></th>-->
-                <!--</tr>-->
-                <!--</thead>-->
-                <!--<tbody class="modeltable">-->
-                <!--<tr>-->
-                    <!--<td><input ng-model="treasure.name" type="text" name=""></td>-->
-                    <!--<td><input ng-model="treasure.quantity" type="text" name=""></td>-->
-                    <!--<td>Destination-->
-                        <!--</br>-->
-                        <!--<input ng-model="treasure.destination" type="text">-->
-                        <!--</br>-->
-                        <!--Price-->
-                        <!--</br>-->
-                        <!--<input ng-model="treasure.price" type="text" name=""></td>-->
-                    <!--<td><textarea class="inputDescription" ng-model="treasurecomment"></textarea></td>-->
-                    <!--<td><input ng-model="treasure.image" type="url" name="">image url</td>-->
-                    <!--<td><span ng-click="addTreasure(treasure)" class="glyphicon glyphicon-plus btn-lg " aria-hidden="true"></span>-->
-                        <!--<span ng-click="updateTreasure(treasure)" class="glyphicon glyphicon-ok btn-lg" aria-hidden="true"></span></td>-->
-                <!--</tr>-->
-
-                <!--<tr ng-repeat="treasure in treasures">-->
-
-                    <!--<td>{{treasure.name}}</td>-->
-                    <!--<td>{{treasure.quantity}}</td>-->
-                    <!--<td>-->
-                        <!--<ul ng-repeat="pair in treasure.destination">-->
-                            <!--<li>{{treasure.destination[$index]}} : {{treasure.price[$index]}}</li>-->
-                        <!--</ul>-->
-                    <!--</td>-->
-                    <!--<td>{{treasure.description}}</td>-->
-                    <!--<td><img class="imgthumb" ng-src="{{treasure.image}}"></td>-->
-                    <!--<td>-->
-                        <!--<span ng-click="deleteTreasure($index)" class="glyphicon glyphicon-remove btn-lg" aria-hidden="true"></span>-->
-                        <!--<span ng-click="selectTreasure($index)" class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>-->
-                    <!--</td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
-
-            <!--</table>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
 <div class="container">
     <div class="row">
+
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad" >
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Item Details</h3>
+                    <h3 class="panel-title">{{currentUser.username}}'s Profile </h3>
                 </div>
                 <div class=" col-md-6 col-lg-6" >
                     <div class="row">
@@ -65,33 +12,49 @@
                             <div class = "panel-body">
                                 <div class="col-md-12 col-lg-12 " align="center">
                                     <img width="150px" height="150px" alt="User Pic"
-                                         src={{curTreasure.image}}>
+                                         src="http://greenlea.ru/Articles-Directory/Online-Dating-the-First-Step-Is-Your-Profile/i0099rp.jpg">
+
+                                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                                        Select image to upload:
+                                        <input type="file" name="fileToUpload" id="fileToUpload">
+                                        <input type="submit" value="Upload Image" name="submit">
+                                    </form>
+
+
                                 </div>
                                 <div class=" col-md-12 col-lg-12 ">
                                     <table class="table table-user-information">
                                         <tbody>
                                         <tr>
-                                            <td>Item name</td>
-                                            <td>{{curTreasure.name}}</td>
+                                            <td>Username:</td>
+                                            <td>{{currentUser.username}}</td>
                                         </tr>
                                         <tr>
-                                            <td>Quantity Left</td>
-                                            <td>{{curTreasure.quantity}}</td>
+                                            <td>First Name</td>
+                                            <td>{{currentUser.firstName}}</td>
                                         </tr>
-
                                         <tr>
-                                            <td>Destination:
-                                                <select ng-model='data.stringArrVal' ng-options="k as v for (k,v) in curTreasure.destination">
-                                                </select>
-                                            </td>
-                                            <td>Price to Destination: {{curTreasure.price[data.stringArrVal]}}</td>
+                                            <td>Last Name</td>
+                                            <td>{{currentUser.lastName}}</td>
                                         </tr>
+                                        <tr>
+                                            <td>Country</td>
+                                            <td>{{currentUser.country}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td><a href="mailto:info@support.com">{{currentUser.emails}}</a></td>
+                                        </tr>
+                                            <td>Phone Number</td>
+                                            <td>{{currentUser.phones}}</td>
+                                        <td></td>
 
+                                        </tr>
 
                                         </tbody>
                                     </table>
                                     <span data-toggle="modal" data-target="#myModal" class="btn btn-primary col-md-3"
-                                          ng-click="passData()">Express Interest!</span>
+                                          ng-click="passData()">Edit Profile</span>
                                 </div>
                             </div>
                         </div>
@@ -116,6 +79,25 @@
                     <div class="row">
                         <div class="panel panel-info">
                             <div class="panel-heading">
+                                <h5 class="panel-title">Mission Taken</h5>
+                            </div>
+                            <div class = "panel-body">
+                                <table class="table table-user-information">
+                                    <thead>
+                                    <tr>
+                                        <td>Missions</td>
+                                        <td>Status</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
                                 <h5 class="panel-title">Products Selling</h5>
                             </div>
                             <div class = "panel-body">
@@ -127,17 +109,18 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr ng-repeat="treasure in currentUser.treasures">
-                                        <td><a>{{treasure.name}}</a></td>
-                                        <td>{{treasure.quantity}}</td>
-                                    </tr>
+                                        <tr ng-repeat="treasure in currentUser.treasures">
+                                            <td><a href="#/treasurehunt/{{treasure._id}}/treasure">{{treasure.name}}</a></td>
+                                            <td>{{treasure.quantity}}</td>
+                                            <td><a ng-click="deleteTreasureFromUser($index)">Remove</a></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
 
 
-                    </div>
+            </div>
 
 
 
@@ -200,5 +183,5 @@
 
 
 
-                </div>
-            </div>
+    </div>
+</div>

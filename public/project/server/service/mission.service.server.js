@@ -4,10 +4,8 @@
 
 module.exports = function(app, model)
 {
-    app.get("/api/project/treasure/treasure", getAllTreasures);
-    app.get("/api/project/treasure/treasure/:treasureId", getTreasureById);
-    app.post("/api/project/treasure", addTreasure);
-    app.delete("/api/project/treasure/:treasureId", deleteTreasureById);
+    //app.get("/api/project/treasure/treasure", getAllTreasures);
+    //app.get("/api/project/treasure/treasure/:treasureId", getTreasureById);
     //app.get("/api/assignment/admin/user", getterHelper);
     //app.get("/api/assignment/admin/user/:userId", getUserById);
     //app.post("/api/assignment/admin/user", addUser);
@@ -28,28 +26,6 @@ module.exports = function(app, model)
     //passport.use(new LocalStrategy(localStrategy));
     //passport.serializeUser(serializeUser);
     //passport.deserializeUser(deserializeUser);
-
-    function deleteTreasureById(req, res)
-    {
-        var id = req.params["treasureId"];
-        model.deleteTreasureById(id)
-            .then(function(response){
-                res.status(200).send(response);
-            }, function(err){
-                res.status(400).send(err);
-            });
-    }
-
-    function addTreasure(req, res)
-    {
-        var item = req.body;
-            model.createItem(item)
-                .then(function(response){
-                    res.status(200).send(response);
-                }, function(err){
-                    res.status(400).send(err);
-                })
-    }
 
     function getTreasureById(req, res)
     {

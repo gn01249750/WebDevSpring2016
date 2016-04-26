@@ -7,40 +7,30 @@
         .module("BountyShopApp")
         .controller("LoginController", LoginController);
 
-    function LoginController($scope,$rootScope, $location)
+    function LoginController($scope, UserService, $location)
     {
-        //$scope.isAdmin = isAdmin;
-        //$scope.userLogOut = userLogOut;
-        //
-        //function userLogOut() {
-        //    UserService
-        //        .logout()
-        //        .then(
-        //            function(response){
-        //                $rootScope.currentUser = null;
-        //                $location.url("/home");
-        //            },
-        //            function(err) {
-        //                console.log(err);
-        //            }
-        //        );
-        //}
-        //
-        //function isAdmin() {
-        //    if($rootScope.currentUser == null){
-        //        return false;
-        //    }else{
-        //        if($rootScope.currentUser.roles == null){
-        //            return false;
-        //        }
-        //        for(i = 0; i < $rootScope.currentUser.roles.length; i++){
-        //            if($rootScope.currentUser.roles[i].replace(/\s/g, '') == "admin"){
-        //                return true;
-        //            }
-        //        }
-        //        return false;
-        //    }
-        //}
+        $scope.login = login;
+
+        function login(user) {
+            if (!user) {
+                return
+            }
+            UserService.login(user)
+                .then(
+                    function (response) {
+                        if(user.role == response.data.roles){
+                            UserService.setCurUser(response.data);
+                            $location.url("/profile");
+                        }else{
+                            alert("user not found");
+                        }
+                    },
+                    function (err) {
+                        alert("user not found");
+                        console.log(err);
+                    }
+                );
+        }
 
 
     }

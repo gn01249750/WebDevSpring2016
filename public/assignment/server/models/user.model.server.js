@@ -54,6 +54,8 @@ module.exports = function(db, mongoose) {
         UserModel.update(
             {_id: id},
             {
+
+
                 username: user.username,
                 password: user.password,
                 firstName: user.firstName,
@@ -158,7 +160,6 @@ module.exports = function(db, mongoose) {
             "phones": [user.phones],
             "roles": user.roles
         });
-        console.log(newUser);
         // save movie to database
         newUser.save(function (err, doc) {
             if (err) {

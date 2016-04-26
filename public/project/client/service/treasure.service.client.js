@@ -9,27 +9,27 @@
 
     function TreasureService($http)
     {
-        var listedItems = [
-            {
-                "_id": "2",
-                "name":"watch",
-                "quantity":"1",
-                "destination":["Japan", "China"],
-                "price":["$50", "$80"],
-                "description": "US made watch, good quality, limited edition. Shipping available to Japan and China",
-                "image": "http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg"
-            },
-            {
-                "_id": "2",
-                "name":"toys",
-                "quantity":"2",
-                "destination":["Japan", "China"],
-                "price":["$20", "$30"],
-                "description": "US made toys, safe for children. Shipping available to Japan and China",
-                "image": "http://www.accesscal.org/wp-content/uploads/2015/11/kids-Toys.jpg"
-            }
-
-        ];
+        //var listedItems = [
+        //    {
+        //        "_id": "2",
+        //        "name":"watch",
+        //        "quantity":"1",
+        //        "destination":["Japan", "China"],
+        //        "price":["$50", "$80"],
+        //        "description": "US made watch, good quality, limited edition. Shipping available to Japan and China",
+        //        "image": "http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg"
+        //    },
+        //    {
+        //        "_id": "2",
+        //        "name":"toys",
+        //        "quantity":"2",
+        //        "destination":["Japan", "China"],
+        //        "price":["$20", "$30"],
+        //        "description": "US made toys, safe for children. Shipping available to Japan and China",
+        //        "image": "http://www.accesscal.org/wp-content/uploads/2015/11/kids-Toys.jpg"
+        //    }
+        //
+        //];
 
         var service = {
             //findAllUsers : findAllUsers,
@@ -40,31 +40,30 @@
             //findUserByUsername: findUserByUsername
             getAllTreasures : getAllTreasures,
             deleteTreasureById: deleteTreasureById,
-            addTreasure: addTreasure
+            addTreasure: addTreasure,
+            getTreasureById: getTreasureById
         };
 
         return service;
 
+        function getTreasureById(id)
+        {
+            return $http.get("/api/project/treasure/treasure/" + id );
+        }
+
         function addTreasure(newItem)
         {
-            listedItems.push(newItem);
+            return $http.post("/api/project/treasure", newItem);
         }
 
         function getAllTreasures()
         {
-            return listedItems;
+            return $http.get("/api/project/treasure/treasure");
         }
 
         function deleteTreasureById(id)
         {
-            for(i=0; i<listedItems.length; i++)
-            {
-                console.log(i);
-                if(listedItems[i]._id == id){
-                    listedItems.splice(i,1);
-                    break;
-                }
-            }
+            return $http.delete("/api/project/treasure/" + id);
         }
 
         //function findUserByUserId(userId)

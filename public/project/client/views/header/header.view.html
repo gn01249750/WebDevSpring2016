@@ -35,8 +35,12 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-        <li><a href="#/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-        <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li ng-hide="currentUser"><a href="#/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+            <li ng-hide="currentUser"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li ng-show="currentUser"><a href="#/profile"><span class="glyphicon glyphicon-user"> {{currentUser.username}}</a></li>
+            <li ng-show="currentUser" ng-click="userLogOut()"><a href=#/"home">Logout</a></li>
+            <!--<li ng-show="isAdmin()"><a href="#/admin">Admin</a></li>-->
+            <!--<li ng-show="currentUser != null" ng-click="userLogOut()"><a href="#/home">Logout</a></li>-->
         </ul>
         </div>
     </div>

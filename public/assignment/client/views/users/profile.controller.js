@@ -32,7 +32,6 @@
                     lastName: updatedUser.lastName,
                     emails: updatedUser.emails
                 };
-                console.log(updatedUser.emails);
                 UserService
                     .updateUser(curId, newUser)
                     .then(function(response){
