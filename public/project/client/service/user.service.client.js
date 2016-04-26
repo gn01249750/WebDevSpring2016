@@ -28,10 +28,17 @@
             setCurUser: setCurUser,
             login: login,
             logout: logout,
-            updateUser: updateUser
+            updateUser: updateUser,
+            getUserByUsername: getUserByUsername
         };
 
         return service;
+
+        function getUserByUsername(username)
+        {
+
+            return $http.get("/api/project/user?username=" + username);
+        }
 
         function updateUser(userId, user)
         {

@@ -84,13 +84,14 @@
                                                 <select ng-model='data.stringArrVal' ng-options="k as v for (k,v) in curTreasure.destination">
                                                 </select>
                                             </td>
-                                            <td>Price to Destination: {{curTreasure.price[data.stringArrVal]}}</td>
+                                            <td>Price to Destination: ${{curTreasure.price[data.stringArrVal]}}</td>
                                         </tr>
 
 
                                         </tbody>
                                     </table>
-                                    <span data-toggle="modal" data-target="#myModal" class="btn btn-primary col-md-3"
+                                    <span ng-hide="!currentUser || curTreasure.seller == currentUser.username"
+                                          data-toggle="modal" data-target="#myModal" class="btn btn-primary col-md-3"
                                           ng-click="passData()">Express Interest!</span>
                                 </div>
                             </div>
@@ -116,26 +117,31 @@
                     <div class="row">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h5 class="panel-title">Products Selling</h5>
+                                <h5 class="panel-title">Seller Information</h5>
                             </div>
                             <div class = "panel-body">
+                                <div class="col-md-12 col-lg-12 " align="center">
+                                    <img width="150px" height="150px" alt="User Pic"
+                                         src={{seller.image}}>
+                                </div>
                                 <table class="table table-user-information">
-                                    <thead>
-                                    <tr>
-                                        <td>Product</td>
-                                        <td>Quantity Left</td>
-                                    </tr>
-                                    </thead>
                                     <tbody>
-                                    <tr ng-repeat="treasure in currentUser.treasures">
-                                        <td><a>{{treasure.name}}</a></td>
-                                        <td>{{treasure.quantity}}</td>
+                                    <tr>
+                                        <td>Seller</td>
+                                        <td>{{seller.username}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Email</td>
+                                        <td>{{seller.emails}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>{{seller.country}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-
 
                     </div>
 
@@ -146,52 +152,17 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Edit</h4>
+                                    <h4 class="modal-title">Express Interest</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">First Name</label>
-                                            <div class="col-sm-4">
-                                                <input ng-model="user.firstName" class="form-control" placeholder="First Name">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Last Name</label>
-                                            <div class="col-sm-4">
-                                                <input ng-model="user.lastName" class="form-control" placeholder="Last Name">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Email</label>
-                                            <div class="col-sm-4">
-                                                <input ng-model="user.emails" class="form-control" placeholder="email">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Country</label>
-                                            <div class="col-sm-4">
-                                                <input ng-model="user.country" class="form-control" placeholder="country">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Phone Number</label>
-                                            <div class="col-sm-4">
-                                                <input ng-model="user.phones" type="text" class="form-control" placeholder="phone">
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <p>Please leave message to the seller</p>
+                                    <textarea ng-model="message"></textarea>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal"
-                                            ng-click="updateUser(user)">Confirm</button>
+                                            ng-click="sendMessageToSeller(message)">Send</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
-
 
                             </div>
 

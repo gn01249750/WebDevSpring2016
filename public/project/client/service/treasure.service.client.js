@@ -41,10 +41,16 @@
             getAllTreasures : getAllTreasures,
             deleteTreasureById: deleteTreasureById,
             addTreasure: addTreasure,
-            getTreasureById: getTreasureById
+            getTreasureById: getTreasureById,
+            updateTreasureById: updateTreasureById
         };
 
         return service;
+
+        function updateTreasureById(treasureId, treasure)
+        {
+            return $http.put("/api/project/treasure/" + treasureId, treasure);
+        }
 
         function getTreasureById(id)
         {

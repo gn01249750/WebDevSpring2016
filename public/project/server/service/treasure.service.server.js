@@ -8,6 +8,7 @@ module.exports = function(app, model)
     app.get("/api/project/treasure/treasure/:treasureId", getTreasureById);
     app.post("/api/project/treasure", addTreasure);
     app.delete("/api/project/treasure/:treasureId", deleteTreasureById);
+    app.put("/api/project/treasure/:treasureId", updateTreasureById);
     //app.get("/api/assignment/admin/user", getterHelper);
     //app.get("/api/assignment/admin/user/:userId", getUserById);
     //app.post("/api/assignment/admin/user", addUser);
@@ -28,6 +29,19 @@ module.exports = function(app, model)
     //passport.use(new LocalStrategy(localStrategy));
     //passport.serializeUser(serializeUser);
     //passport.deserializeUser(deserializeUser);
+
+    function updateTreasureById(req, res)
+    {
+        var id = req.params["treasureId"];
+        var treasure = req.body;
+
+        model.updateTreasureById(id, treasure)
+            .then(function(response){
+                res.status(200).send(response);
+            }, function(err){
+                res.status(400).send(err);
+            });
+    }
 
     function deleteTreasureById(req, res)
     {

@@ -55,7 +55,8 @@
                 "missions": $rootScope.currentUser.missions,
                 "treasures": $rootScope.currentUser.treasures,
                 "phones": $rootScope.currentUser.phones,
-                "roles": $rootScope.currentUser.roles
+                "roles": $rootScope.currentUser.roles,
+                "image": $rootScope.currentUser.image
             }
             $scope.user = newU;
         }

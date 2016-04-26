@@ -87,6 +87,7 @@
                                     <tr>
                                         <td>Missions</td>
                                         <td>Status</td>
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -106,13 +107,15 @@
                                     <tr>
                                         <td>Product</td>
                                         <td>Quantity Left</td>
+                                        <td>People Interested</td>
                                     </tr>
                                     </thead>
                                     <tbody>
                                         <tr ng-repeat="treasure in currentUser.treasures">
                                             <td><a href="#/treasurehunt/{{treasure._id}}/treasure">{{treasure.name}}</a></td>
                                             <td>{{treasure.quantity}}</td>
-                                            <td><a ng-click="deleteTreasureFromUser($index)">Remove</a></td>
+                                            <td><a href="">Expand</a></td>
+                                            <td><a href="" ng-click="deleteTreasureFromUser($index)">Remove</a></td>
                                         </tr>
                                     </tbody>
                                 </table>

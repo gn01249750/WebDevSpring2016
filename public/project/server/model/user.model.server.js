@@ -87,11 +87,11 @@ module.exports = function(db, mongoose)
                         "missions": user.missions,
                         "treasures": user.treasures,
                         "phones": user.phones,
-                        "roles": user.roles
+                        "roles": user.roles,
+                        "image": user.image
             },
             function(err, results){
                 if(err){
-                    console.log(err);
                     deferred.reject(err);
                 }else{
 
@@ -142,7 +142,6 @@ module.exports = function(db, mongoose)
         return deferred.promise;
     }
 
-
     function findUserById(id)
     {
         var deferred = q.defer();
@@ -169,7 +168,8 @@ module.exports = function(db, mongoose)
             "missions": user.missions,
             "treasures": user.treasures,
             "phones": user.phones,
-            "roles": user.roles
+            "roles": user.roles,
+            "image": user.image
         });
         // save movie to database
         newUser.save(function (err, doc) {

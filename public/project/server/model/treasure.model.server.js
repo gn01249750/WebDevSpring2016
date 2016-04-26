@@ -118,9 +118,39 @@ module.exports = function(db, mongoose)
         getAllTreasure: getAllTreasure,
         getTreasureById: getTreasureById,
         createItem: createItem,
-        deleteTreasureById: deleteTreasureById
+        deleteTreasureById: deleteTreasureById,
+        updateTreasureById: updateTreasureById
     };
     return api;
+
+    function updateTreasureById(id, treasure)
+    {
+        var deferred = q.defer();
+        console.log(treasure);
+        TreasureModel.update(
+            {_id: id},
+            {
+                name: treasure.name,
+                quantity: treasure.quantity,
+                destination: treasure.destination,
+                price: treasure.price,
+                description: treasure.description,
+                image: treasure.image,
+                seller: treasure.seller,
+                status: treasure.status,
+                interester: treasure.interester,
+                message: treasure.message
+            },
+            function(err, results){
+                if(err){
+                    deferred.reject(err);
+                }else{
+                    console.log(results);
+                    deferred.resolve(results);
+                }
+            });
+        return deferred.promise;
+    }
 
     function deleteTreasureById(id)
     {
@@ -146,7 +176,9 @@ module.exports = function(db, mongoose)
             description: item.description,
             image: item.image,
             seller: item.seller,
-            status: item.status
+            status: item.status,
+            interester: item.interester,
+            message: item.message
         });
 
             // save movie to database

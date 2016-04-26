@@ -54,6 +54,8 @@
         {
             var des = [];
             var price = [];
+            var inte = [];
+            var mess = [];
             if(item.destination && item.price || item.destination == null && item.price == null)
             {
                 if(item.destination){
@@ -80,7 +82,9 @@
                         description: item.description,
                         image: item.image,
                         seller: $rootScope.currentUser.username,
-                        status: "open"
+                        status: "open",
+                        interester: inte,
+                        message: mess
                     };
                     TreasureService
                         .addTreasure(newItem)
@@ -109,12 +113,14 @@
                                     "missions": $rootScope.currentUser.missions,
                                     "treasures": newM,
                                     "phones": $rootScope.currentUser.phones,
-                                    "roles": $rootScope.currentUser.roles
+                                    "roles": $rootScope.currentUser.roles,
+                                    "image": $rootScope.currentUser.image
                                 };
                                 UserService
                                     .updateUser(curId, newUser)
                                     .then(function(response){
                                         UserService.setCurUser(newUser);
+                                        getAllTreasures();
                                         $scope.item = null;
                                     }, function(err){
                                         console.log("Error: " + err);

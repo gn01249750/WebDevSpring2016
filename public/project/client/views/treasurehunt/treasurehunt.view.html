@@ -22,7 +22,7 @@
                             <select ng-model='data.stringArrVal' ng-options="k as v for (k,v) in item.destination">
                             </select>
                         </li>
-                        <li>Price to Destination: {{item.price[data.stringArrVal]}}</li>
+                        <li>Price to Destination: ${{item.price[data.stringArrVal]}}</li>
                         <li>Description: {{item.description}}</li>
                         <a href="#/treasurehunt/{{item._id}}/treasure" > GO!</a>
                     </ul>

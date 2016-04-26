@@ -42,7 +42,8 @@
                     roles: regi.Role,
                     "lastName": null,
                     "country": null,
-                    "phones": null
+                    "phones": null,
+                    "image" : "http://greenlea.ru/Articles-Directory/Online-Dating-the-First-Step-Is-Your-Profile/i0099rp.jpg"
                 };
                 UserService
                     .register(newUser)

@@ -11,6 +11,8 @@ module.exports = function(mongoose) {
         image: String,
         seller: String,
         status: {type: String, enum: statusType},
+        interester: [String],
+        message: [String]
     }, {collection: "projecttreasure"});
 
     return TreasureSchema;

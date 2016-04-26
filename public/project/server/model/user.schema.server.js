@@ -15,7 +15,8 @@ module.exports = function(mongoose) {
         roles: {type: String, enum: rolesTypes},
         missions: [mission],
         treasures: [treasure],
-        phones: String
+        phones: String,
+        image: String
     }, {collection: "projectuser"});
 
     return UserSchema;

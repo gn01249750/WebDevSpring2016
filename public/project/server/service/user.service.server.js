@@ -32,6 +32,7 @@ module.exports = function(app, model, passport)
     app.get("/api/project/loggedin", loggedIn);
     app.put("/api/project/user/:id", updateUser);
 
+
     passport.use(new LocalStrategy(localStrategy));
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
