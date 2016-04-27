@@ -2,7 +2,10 @@
 
     <div class="form-group">
         <label class="control-label">search</label>
-        <input  placeholder="Password">
+        <input ng-model="searchKeyWord"  placeholder="search treasure">
+        <a
+              class="btn btn-primary"
+               href="#/treasurehunt/search/{{searchKeyWord}}">Search!</a>
     </div>
 
     <div ng-repeat="item in listedItems" class="list-group col-md-6">
@@ -24,7 +27,8 @@
                         </li>
                         <li>Price to Destination: ${{item.price[data.stringArrVal]}}</li>
                         <li>Description: {{item.description}}</li>
-                        <a href="#/treasurehunt/{{item._id}}/treasure" > GO!</a>
+                        <a href="#/treasurehunt/{{item._id}}/treasure" > GO!</a> <br>
+                        <a href="#/treasurehunt/similar/{{item.name}}">Look Up Similar Items</a>
                     </ul>
                 </div>
             </div>

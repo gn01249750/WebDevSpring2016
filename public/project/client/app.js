@@ -7,4 +7,5 @@
 (function(){
     angular
         .module("BountyShopApp", ["ngRoute"]);
+
 })();

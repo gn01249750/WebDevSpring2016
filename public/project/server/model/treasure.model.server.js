@@ -119,9 +119,23 @@ module.exports = function(db, mongoose)
         getTreasureById: getTreasureById,
         createItem: createItem,
         deleteTreasureById: deleteTreasureById,
-        updateTreasureById: updateTreasureById
+        updateTreasureById: updateTreasureById,
+        getTreasureByName: getTreasureByName
     };
     return api;
+
+    function getTreasureByName(name)
+    {
+        var deferred = q.defer();
+        TreasureModel.find({name: {$regex: name}}, function(err, result){
+            if(err){
+                deferred.reject(err);
+            }else{
+                deferred.resolve(result);
+            }
+        });
+        return deferred.promise;
+    }
 
     function updateTreasureById(id, treasure)
     {

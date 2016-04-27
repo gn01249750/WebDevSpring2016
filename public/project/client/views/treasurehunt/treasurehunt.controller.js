@@ -49,6 +49,18 @@
         $scope.getAllTreasures = getAllTreasures;
         $scope.addNewTreasure = addNewTreasure;
         getAllTreasures();
+        $scope.searchItems = searchItems;
+
+        function searchItems(keyword)
+        {
+            TreasureService
+                .getTreasureByName(keyword)
+                .then(function(response){
+                    console.log(response.data);
+                }, function(err){
+                    console.log("Error: " + err);
+                })
+        }
 
         function addNewTreasure(item)
         {
@@ -101,7 +113,7 @@
                             function (response){
                                 var curId = $rootScope.currentUser._id;
                                 var newM = $rootScope.currentUser.treasures;
-                                newM.push(response.data);
+                                newM.push(response.data._id);
                                 var newUser = {
                                     "_id": $rootScope.currentUser._id,
                                     "username": $rootScope.currentUser.username,

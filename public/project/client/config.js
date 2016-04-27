@@ -60,12 +60,20 @@
                 //    loggedin: checkLoggedin
                 //}
             })
+            .when("/treasurehunt/search/:searchKeyWord", {
+                templateUrl: "views/treasurehunt/treasureSearch.view.html",
+                controller: "TreasureSearchController"
+            })
             .when("/missions/:id/missiondetails", {
                 templateUrl: "views/missionboard/mission.view.html",
                 controller: "MissionDetailController"
                 //resolve: {
                 //    loggedin: checkLoggedin
                 //}
+            })
+            .when("/treasurehunt/similar/:searchKeyWord", {
+                templateUrl: "views/treasurehunt/treasureSimilar.view.html",
+                controller: "TreasureSimilarController"
             })
             .otherwise({
                 redirectTo: "/home"

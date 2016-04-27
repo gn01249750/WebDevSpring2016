@@ -1,0 +1,41 @@
+<h1>Treasure Hunt Result</h1>
+
+<div class="form-group">
+    <label class="control-label">search</label>
+    <input ng-model="searchKeyWord"  placeholder="search treasure">
+    <a
+            class="btn btn-primary"
+            href="#/treasurehunt/search/{{searchKeyWord}}">Search!</a>
+</div>
+
+<div ng-if="currentResults.length > 0" ng-repeat="item in currentResults" class="list-group col-md-6">
+    <div class="list-group-item">
+        <div class="media col-md-4">
+            <figure class="pull-left">
+                <img class="media-object img-rounded img-responsive"
+                     ng-src="{{item.image}}">
+            </figure>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-8">
+                <h3> {{item.name}} </h3>
+                <ul>
+                    <li>Quantity Left: {{item.quantity}}</li>
+                    <li>Destination:
+                        <select ng-model='data.stringArrVal' ng-options="k as v for (k,v) in item.destination">
+                        </select>
+                    </li>
+                    <li>Price to Destination: ${{item.price[data.stringArrVal]}}</li>
+                    <li>Description: {{item.description}}</li>
+                    <a href="#/treasurehunt/{{item._id}}/treasure" > GO!</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="currentResults.length == 0">
+    <h1>No result found!</h1>
+</div>
+
+

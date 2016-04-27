@@ -12,15 +12,58 @@
         $scope.passData= passData;
         $scope.updateUser = updateUser;
         $scope.deleteTreasureFromUser = deleteTreasureFromUser;
+        $scope.chooseTreasure = chooseTreasure;
+        getAllTreasuresOfUser();
+
+
+        function chooseTreasure(index)
+        {
+            $scope.chosenTreasure = $scope.alltreasures[index];
+            $scope.chosenTreasureUser = [];
+            $scope.chosenTreasreMessage = $scope.chosenTreasure.message;
+            for(i = 0; i<$scope.chosenTreasure.interester.length; i++)
+            {
+                console.log(i);
+                UserService
+                    .getUserByUsername($scope.chosenTreasure.interester[i])
+                    .then(function(response){
+                        console.log(response.data);
+                        $scope.chosenTreasureUser.push(response.data);
+                    }, function(err){
+                        console.log("Error: " + err);
+                    });
+            }
+
+        }
+
+        function getAllTreasuresOfUser()
+        {
+            $scope.alltreasures = [];
+            for(i = 0; i<$rootScope.currentUser.treasures.length;i++)
+            {
+                TreasureService
+                    .getTreasureById($rootScope.currentUser.treasures[i])
+                    .then(function(response){
+                        return response;
+                    }, function(err){
+                        console.log("Error: " + err);
+                    })
+                    .then(function(response){
+                        console.log(response.data);
+                        $scope.alltreasures.push(response.data);
+                    })
+            }
+        }
 
         function deleteTreasureFromUser(index)
         {
-            var tempId = $rootScope.currentUser.treasures[index]._id;
+            var tempId = $rootScope.currentUser.treasures[index];
             TreasureService
                 .deleteTreasureById(tempId)
                 .then(function(response){
                     $rootScope.currentUser.treasures.splice(index,1);
                     updateUser($rootScope.currentUser);
+                    getAllTreasuresOfUser();
                 }, function(err){
                     console.log("Error: " + err);
                 });
@@ -60,6 +103,8 @@
             }
             $scope.user = newU;
         }
+
+
 
 
     }

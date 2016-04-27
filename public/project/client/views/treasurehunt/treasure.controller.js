@@ -48,7 +48,7 @@
         function sendMessageToSeller(message)
         {
             var tempInt = $scope.curTreasure.interester;
-            tempInt.push($rootScope.currentUser._id);
+            tempInt.push($rootScope.currentUser.username);
             var tempMes = $scope.curTreasure.message;
             tempMes.push(message);
             var temp =
@@ -66,7 +66,7 @@
             }
             TreasureService.updateTreasureById($scope.curTreasure._id, temp)
                 .then(function(response){
-
+                    $scope.message = null;
                 })
 
         }

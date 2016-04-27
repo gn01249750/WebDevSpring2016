@@ -42,10 +42,16 @@
             deleteTreasureById: deleteTreasureById,
             addTreasure: addTreasure,
             getTreasureById: getTreasureById,
-            updateTreasureById: updateTreasureById
+            updateTreasureById: updateTreasureById,
+            getTreasureByName: getTreasureByName
         };
 
         return service;
+
+        function getTreasureByName(name)
+        {
+            return $http.get("/api/project/treasure/" +name);
+        }
 
         function updateTreasureById(treasureId, treasure)
         {

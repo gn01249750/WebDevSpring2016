@@ -40,16 +40,19 @@ div.list-group-item {
     background: #fff3ef;
 
 }
+
+
 a.list-group-item.active small {
     color:#fff;
 }
 
 .homee img {
-    max-height:600px;
-    min-height:600px;
-    min-width:600px;
-    max-width:600px;
+    width:600px;
+    height:600px;
+
 }
+
+
 
 .panel-info>.panel-heading{
     background-color:#cc6520;
