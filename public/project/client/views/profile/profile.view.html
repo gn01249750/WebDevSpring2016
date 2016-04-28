@@ -12,7 +12,7 @@
                             <div class = "panel-body">
                                 <div class="col-md-12 col-lg-12 " align="center">
                                     <img width="150px" height="150px" alt="User Pic"
-                                         src="http://greenlea.ru/Articles-Directory/Online-Dating-the-First-Step-Is-Your-Profile/i0099rp.jpg">
+                                         ng-src={{currentUser.image}}>
 
                                     <form enctype="multipart/form-data">
                                         Select image to upload: {not workable yet)
@@ -200,6 +200,13 @@
                                             <label class="col-sm-4 control-label">Phone Number</label>
                                             <div class="col-sm-4">
                                                 <input ng-model="user.phones" type="text" class="form-control" placeholder="phone">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Profile Picture</label>
+                                            <div class="col-sm-4">
+                                                <input ng-model="user.image" type="text" class="form-control" placeholder="image url">
                                             </div>
                                         </div>
                                     </form>
