@@ -1,2 +1,22 @@
-<h1>GG</h1>
-{{items}}
+<div ng-repeat="item in results" class="list-group col-md-6">
+    <div class="list-group-item">
+        <div class="media col-md-4">
+            <figure class="pull-left">
+                <img class="media-object img-rounded img-responsive"
+                     ng-src="{{item.ItemImage}}">
+            </figure>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-12">
+                <h4> {{item.Itemname}} </h4>
+                <ul>
+                    <li>Price: ${{item.Pricing}}</li>
+                    <li>Description:
+                        {{item.ItemDescription}}
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

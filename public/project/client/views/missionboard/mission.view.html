@@ -1,69 +1,100 @@
-<!--<!DOCTYPE html>-->
-<!--<html ng-app="BountyShopApp" lang="en">-->
-<!--<head>-->
-    <!--<meta charset="UTF-8">-->
-    <!--<title>Title</title>-->
-    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
-    <!--<link rel="stylesheet" href="../../client/css/projectcss.css">-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad" >
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Mission Details</h3>
+                </div>
+                <div class=" col-md-6 col-lg-6" >
+                    <div class="row">
+                        <div class="panel panel-info">
+                            <div class = "panel-body">
+                                <div class="col-md-12 col-lg-12 " align="center">
+                                    <img width="150px" height="150px" alt="Mission Pic"
+                                         src={{curMission.image}}>
+                                </div>
+                                <div class=" col-md-12 col-lg-12 ">
+                                    <table class="table table-user-information">
+                                        <tbody>
+                                        <tr>
+                                            <td>Item name</td>
+                                            <td>{{curMission.name}}</td>
+                                        </tr>
 
-    <!--&lt;!&ndash; jQuery library &ndash;&gt;-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
+                                        <tr>
+                                            <td>Shipping Destination: {{curMission.destination}}</td>
+                                        </tr>
 
-    <!--&lt;!&ndash; Latest compiled JavaScript &ndash;&gt;-->
-    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>-->
-    <!--<script src="missiondetail.controller.js"></script>-->
-<!--</head>-->
-<!--<body class="grey-background" ng-controller="MissionBoardController">-->
-    <div class="container">
-        <div class="row">
-            <div class="table-responsive">
-                <table  class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th>Mission Name</th>
-                        <th>Quantity Wanted</th>
-                        <th>Desination</th>
-                        <th>Date Wanted</th>
-                        <th>Price Range</th>
-                        <th> Description</th>
-                        <th> Image</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody class="modeltable">
-                        <tr>
-                            <td><input ng-model="mission.name" type="text" name=""></td>
-                            <td><input ng-model="mission.quantity" type="text" name=""></td>
-                            <td><input ng-model="mission.destination" type="text"></td>
-                            <td><input ng-model="mission.date" type="date" name=""></td>
-                            <td><input ng-model="mission.price" type="text" name=""></td>
-                            <td><textarea class="inputDescription" ng-model="missioncomment"></textarea></td>
-                            <td><input ng-model="mission.image" type="url" name="">image url</td>
-                            <td><span ng-click="addMission(mission)" class="glyphicon glyphicon-plus btn-lg " aria-hidden="true"></span>
-                                <span ng-click="updateMission(mission)" class="glyphicon glyphicon-ok btn-lg" aria-hidden="true"></span></td>
-                        </tr>
 
-                    <tr ng-repeat="mission in missions">
-                        <!--ng-class="{'success' : $index == selectedCourseIndex}">-->
+                                        </tbody>
+                                    </table>
+                                    <span ng-hide="!currentUser || curMission.buyer == currentUser.username"
+                                          data-toggle="modal" data-target="#myModal" class="btn btn-primary col-md-3"
+                                          ng-click="passData()">Express Interest!</span>
+                                </div>
+                            </div>
+                        </div>
 
-                        <td>{{mission.name}}</td>
-                        <td>{{mission.quantity}}</td>
-                        <td>{{mission.destination}}</td>
-                        <td>{{mission.date | date: "yyyy-MM-dd"}}</td>
-                        <td>{{mission.price}}</td>
-                        <td>{{mission.description}}</td>
-                        <td><img class="imgthumb" ng-src="{{mission.image}}"></td>
-                        <td>
-                            <span ng-click="deleteMission($index)" class="glyphicon glyphicon-remove btn-lg" aria-hidden="true"></span>
-                            <span ng-click="selectMission($index)" class="glyphicon glyphicon-pencil btn-lg" aria-hidden="true"></span>
-                        </td>
-                    </tr>
-                    </tbody>
+                    </div>
+                </div>
 
-                </table>
+                <div class="col-md-6 col-lg-6" >
+                    <div class="row">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">Buyer Information</h5>
+                            </div>
+                            <div class = "panel-body">
+                                <div class="col-md-12 col-lg-12 " align="center">
+                                    <img width="150px" height="150px" alt="User Pic"
+                                         src={{buyer.image}}>
+                                </div>
+                                <table class="table table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td>Seller</td>
+                                        <td>{{buyer.username}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Email</td>
+                                        <td>{{buyer.emails}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>{{buyer.country}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Express Interest</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Please leave message to the seller</p>
+                                    <textarea ng-model="message"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            ng-click="sendMessageToSeller(message)">Send</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
             </div>
-        </div>
-    </div>
-<!--</body>-->
-<!--</html>-->

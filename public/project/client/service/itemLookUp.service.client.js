@@ -11,7 +11,8 @@
     {
 
         var service = {
-            getItemIdByName: getItemIdByName
+            getItemIdByName: getItemIdByName,
+            getItemsById: getItemsById
         };
 
         return service;
@@ -19,9 +20,12 @@
 
         function getItemIdByName(item)
         {
-            console.log(item);
-            //return $http.jsonp("http://www.omdbapi.com/?s=home&callback=JSON_CALLBACK");
-            return $http.get("http://www.supermarketapi.com/api.asmx/SearchByProductName?APIKEY=0d5bc661c9&ItemName=lays");
+            return $http.get("http://www.SupermarketAPI.com/api.asmx/SearchByProductName?APIKEY=0d5bc661c9&ItemName="+item);
+        }
+
+        function getItemsById(id)
+        {
+            return $http.get("http://www.SupermarketAPI.com/api.asmx/COMMERCIAL_SearchByItemID?APIKEY=0d5bc661c9&ItemId="+id);
         }
     }
 })();

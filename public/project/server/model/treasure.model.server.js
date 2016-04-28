@@ -8,113 +8,8 @@ module.exports = function(db, mongoose)
 {
     var treasureSchema = require("./treasure.schema.server.js")(mongoose);
     var TreasureModel = mongoose.model("TreasureModel", treasureSchema);
-    //var listedItems = [
-    //    {
-    //        "_id": "1",
-    //        "name":"watch",
-    //        "quantity":"1",
-    //        "destination":["Japan", "China"],
-    //        "price":["$50", "$80"],
-    //        "description": "US made watch, good quality, limited edition. Shipping available to Japan and China",
-    //        "image": "http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg"
-    //    },
-    //    {
-    //        "_id": "2",
-    //        "name":"toys",
-    //        "quantity":"2",
-    //        "destination":["Japan", "China"],
-    //        "price":["$20", "$30"],
-    //        "description": "US made toys, safe for children. Shipping available to Japan and China",
-    //        "image": "http://www.accesscal.org/wp-content/uploads/2015/11/kids-Toys.jpg"
-    //    },
-    //    {
-    //        "_id": "1",
-    //        "name":"watch",
-    //        "quantity":"1",
-    //        "destination":["Japan", "China"],
-    //        "price":["$50", "$80"],
-    //        "description": "US made watch, good quality, limited edition. Shipping available to Japan and China",
-    //        "image": "http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg"
-    //    },
-    //    {
-    //        "_id": "2",
-    //        "name":"toys",
-    //        "quantity":"2",
-    //        "destination":["Japan", "China"],
-    //        "price":["$20", "$30"],
-    //        "description": "US made toys, safe for children. Shipping available to Japan and China",
-    //        "image": "http://www.accesscal.org/wp-content/uploads/2015/11/kids-Toys.jpg"
-    //    },
-    //    {
-    //        "_id": "1",
-    //        "name":"watch",
-    //        "quantity":"1",
-    //        "destination":["Japan", "China"],
-    //        "price":["$50", "$80"],
-    //        "description": "US made watch, good quality, limited edition. Shipping available to Japan and China",
-    //        "image": "http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg"
-    //    },
-    //    {
-    //        "_id": "2",
-    //        "name":"toys",
-    //        "quantity":"2",
-    //        "destination":["Japan", "China"],
-    //        "price":["$20", "$30"],
-    //        "description": "US made toys, safe for children. Shipping available to Japan and China",
-    //        "image": "http://www.accesscal.org/wp-content/uploads/2015/11/kids-Toys.jpg"
-    //    },
-    //    {
-    //        "_id": "1",
-    //        "name":"watch",
-    //        "quantity":"1",
-    //        "destination":["Japan", "China"],
-    //        "price":["$50", "$80"],
-    //        "description": "US made watch, good quality, limited edition. Shipping available to Japan and China",
-    //        "image": "http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg"
-    //    },
-    //    {
-    //        "_id": "2",
-    //        "name":"toys",
-    //        "quantity":"2",
-    //        "destination":["Japan", "China"],
-    //        "price":["$20", "$30"],
-    //        "description": "US made toys, safe for children. Shipping available to Japan and China",
-    //        "image": "http://www.accesscal.org/wp-content/uploads/2015/11/kids-Toys.jpg"
-    //    },
-    //    {
-    //        "_id": "1",
-    //        "name":"watch",
-    //        "quantity":"1",
-    //        "destination":["Japan", "China"],
-    //        "price":["$50", "$80"],
-    //        "description": "US made watch, good quality, limited edition. Shipping available to Japan and China",
-    //        "image": "http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg"
-    //    },
-    //    {
-    //        "_id": "2",
-    //        "name":"toys",
-    //        "quantity":"2",
-    //        "destination":["Japan", "China"],
-    //        "price":["$20", "$30"],
-    //        "description": "US made toys, safe for children. Shipping available to Japan and China",
-    //        "image": "http://www.accesscal.org/wp-content/uploads/2015/11/kids-Toys.jpg"
-    //    }
-    //
-    //];
 
-    //var formSchema = require("./form.schema.server.js")(mongoose);
-    //var Form  = mongoose.model("Form", formSchema);
-    //
-    //
-    //var movies = [];
     var api = {
-        //createForm: createForm,
-        //findAllForm: findAllForm,
-        //getFormByFormId: getFormByFormId,
-        //updateFormByFormId: updateFormByFormId,
-        //findFormByTitle: findFormByTitle,
-        //deleteFormByFormId: deleteFormByFormId,
-        //getFormByUserId: getFormByUserId
         getAllTreasure: getAllTreasure,
         getTreasureById: getTreasureById,
         createItem: createItem,
@@ -140,7 +35,6 @@ module.exports = function(db, mongoose)
     function updateTreasureById(id, treasure)
     {
         var deferred = q.defer();
-        console.log(treasure);
         TreasureModel.update(
             {_id: id},
             {

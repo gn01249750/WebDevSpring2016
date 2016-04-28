@@ -1,39 +1,106 @@
-    <div class="container">
-        <div class="row">
+<h1>Treasure Hunt</h1>
 
-            <h1>Mission Board</h1>
+<div class="form-group">
+    <label class="control-label">search</label>
+    <input ng-model="searchKeyWord"  placeholder="search treasure">
+    <a
+            class="btn btn-primary"
+            href="#/treasurehunt/search/{{searchKeyWord}}">Search!</a>
+</div>
 
-            <div class="form-group">
-                <label class="control-label">search</label>
-                <input  placeholder="Password">
+<div ng-repeat="item in listedItems" class="list-group col-md-6">
+    <div class="list-group-item">
+        <div class="media col-md-4">
+            <figure class="pull-left">
+                <img class="media-object img-rounded img-responsive"
+                     ng-src="{{item.image}}">
+            </figure>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-8">
+                <h3> {{item.name}} </h3>
+                <ul>
+                    <li>Quantity Left: {{item.quantity}}</li>
+                    <li>Destination:
+                        <select ng-model='data.stringArrVal' ng-options="k as v for (k,v) in item.destination">
+                        </select>
+                    </li>
+                    <li>Price to Destination: ${{item.price[data.stringArrVal]}}</li>
+                    <li>Description: {{item.description}}</li>
+                    <a href="#/missionboard/{{item._id}}/mission" > GO!</a> <br>
+                    <a href="#/treasurehunt/similar/{{item.name}}">Look Up Similar Items</a>
+                </ul>
             </div>
+        </div>
+    </div>
+</div>
 
-            <div ng-repeat="mission in missions" class="list-group col-md-6">
-                <div class="list-group-item">
-                    <div class="media col-md-4">
-                        <figure class="pull-left">
-                            <img class="media-object img-rounded img-responsive"
-                                 ng-src="{{mission.image}}">
-                        </figure>
-                    </div>
-                    <div class="col-md-8">
 
-                            <h3> Watch </h3>
-                            <ul>
-                                <li>Quantity: {{mission.quantity}}</li>
-                                <li>Desired Date of Arrival: {{mission.date}}</li>
-                                <li>Destination: {{mission.destination}}</li>
-                                <li>Unit Price Range: {{mission.price}}</li>
-                                <li>Description: {{mission.description}}</li>
-                            </ul>
 
-                    </div>
-                </a>
+<span ng-hide="!currentUser"  data-toggle="modal" data-target="#myModal" class="btn btn-primary col-md-12">Post Item</span>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Post Item</h4>
             </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Item Name:</label>
+                        <div class="col-sm-4">
+                            <input ng-model="item.name" class="form-control" placeholder="Item Name">
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Quantity</label>
+                        <div class="col-sm-4">
+                            <input ng-model="item.quantity" class="form-control" placeholder="Quantity">
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Destination</label>
+                        <div class="col-sm-4">
+                            <input ng-model="item.destination" class="form-control" placeholder="Destinations seperated by comma">
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Price</label>
+                        <div class="col-sm-4">
+                            <input ng-model="item.price" class="form-control" placeholder="Prices seperated by comma">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Image Url</label>
+                        <div class="col-sm-4">
+                            <input ng-model="item.image" type="text" class="form-control" placeholder="Image Url">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Description</label>
+                        <div class="col-sm-4">
+                            <input ng-model="item.description" type="text" class="form-control" placeholder="Description">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                        ng-click="addNewMission(item)">Post</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
 
-
     </div>
+
+</div>
+
+<!--</body>-->
+<!--</html>-->

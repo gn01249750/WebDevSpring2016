@@ -1,9 +1,7 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
-
-
-
+//var cors = require('cors');
 var bodyParser = require('body-parser');
 var multer = require('multer'); // v1.0.5
 var upload = multer(); // for parsing multipart/form-data
@@ -23,6 +21,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 var db = mongoose.connect(connectionString);
 
 
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
@@ -35,6 +34,20 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
+//app.use(cors());
+//
+//app.get('http://www.supermarketapi.com/api.asmx/SearchByProductName?APIKEY=0d5bc661c9&ItemName=:lays', function(req, res, next){
+//    res.json({msg: 'This is CORS-enabled for all origins!'});
+//});
+//
+//app.listen(3000, function(){
+//    console.log('CORS-enabled web server listening on port 80');
+//});
+
+var cors = require('cors');
+
+// use it before all route definitions
+app.use(cors({origin: 'http://www.supermarketapi.com'}));
 
 app.use(express.static(__dirname + '/public'));
 

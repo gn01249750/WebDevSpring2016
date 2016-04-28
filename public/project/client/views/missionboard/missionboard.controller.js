@@ -4,32 +4,103 @@
         .module("BountyShopApp")
         .controller("MissionBoardController", MissionBoardController);
 
-    function MissionBoardController($scope)
+    function MissionBoardController($scope, MissionService, $rootScope, UserService)
     {
-        var missions = [
-            {
-                "_id": "2",
-                "name":"watch",
-                "quantity":"1",
-                "date":"2016",
-                "destination":"Japan",
-                "price":"0-120",
-                "description": "want this watch for friend's birthday, ASAP!",
-                "image": "http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg"
-            },
-            {
-                "_id": "2",
-                "name":"toys",
-                "quantity":"2",
-                "date":"2016",
-                "destination":"Italy",
-                "price":"20-28",
-                "description": "",
-                "image": "http://www.accesscal.org/wp-content/uploads/2015/11/kids-Toys.jpg"
-            }
-        ];
+        $scope.getAllMission = getAllMission;
+        $scope.addNewMission = addNewMission;
+        getAllMission();
+        $scope.searchItems = searchItems;
 
-        $scope.missions = missions;
+        function searchItems(keyword)
+        {
+            TreasureService
+                .getTreasureByName(keyword)
+                .then(function(response){
+                    console.log(response.data);
+                }, function(err){
+                    console.log("Error: " + err);
+                })
+        }
+
+        function addNewMission(item)
+        {
+            var inte = [];
+            var mess = [];
+
+                    var newItem = {
+                        name: item.name,
+                        quantity: item.quantity,
+                        destination: item.destination,
+                        price: item.price,
+                        description: item.description,
+                        image: item.image,
+                        buyer: $rootScope.currentUser.username,
+                        status: "open",
+                        interester: inte,
+                        message: mess
+                    };
+                    MissionService
+                        .addMission(newItem)
+                        .then(
+                            function (response) {
+                                return response;
+
+                            },
+                            function (err) {
+                                console.log("Error: " + err);
+                            }
+                        )
+                        .then(
+                            function (response){
+                                var curId = $rootScope.currentUser._id;
+                                var newM = $rootScope.currentUser.missions;
+                                newM.push(response.data._id);
+                                var newUser = {
+                                    "_id": $rootScope.currentUser._id,
+                                    "username": $rootScope.currentUser.username,
+                                    "password": $rootScope.currentUser.password,
+                                    "firstName": $rootScope.currentUser.firstName,
+                                    "lastName": $rootScope.currentUser.lastName,
+                                    "emails": $rootScope.currentUser.emails,
+                                    "country": $rootScope.currentUser.country,
+                                    "missions": newM,
+                                    "treasures": $rootScope.currentUser.treasures,
+                                    "phones": $rootScope.currentUser.phones,
+                                    "roles": $rootScope.currentUser.roles,
+                                    "image": $rootScope.currentUser.image
+                                };
+                                UserService
+                                    .updateUser(curId, newUser)
+                                    .then(function(response){
+                                        UserService.setCurUser(newUser);
+                                        getAllMission();
+                                        $scope.item = null;
+                                    }, function(err){
+                                        console.log("Error: " + err);
+                                    });
+                            }
+                        )
+
+
+
+
+
+
+        }
+
+        function getAllMission()
+        {
+            MissionService
+                .getAllMission()
+                .then(
+                    function(response) {
+                        $scope.listedItems = response.data;
+                    },
+                    function(err) {
+                        console.log("Error: "+ err);
+                    }
+                )
+        }
 
 
     }

@@ -64,7 +64,7 @@
                 templateUrl: "views/treasurehunt/treasureSearch.view.html",
                 controller: "TreasureSearchController"
             })
-            .when("/missions/:id/missiondetails", {
+            .when("/missionboard/:id/mission", {
                 templateUrl: "views/missionboard/mission.view.html",
                 controller: "MissionDetailController"
                 //resolve: {
