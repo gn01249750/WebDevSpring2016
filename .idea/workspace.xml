@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0502e611-b640-4cd4-ab62-5d50843cb0cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/home/home.view.html" afterPath="$PROJECT_DIR$/public/project/client/views/home/home.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/missionboard/mission.view.html" afterPath="$PROJECT_DIR$/public/project/client/views/missionboard/mission.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/missionboard/missiondetail.controller.js" afterPath="$PROJECT_DIR$/public/project/client/views/missionboard/missiondetail.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/profile/profile.controller.js" afterPath="$PROJECT_DIR$/public/project/client/views/profile/profile.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/profile/profile.view.html" afterPath="$PROJECT_DIR$/public/project/client/views/profile/profile.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/register/register.view.html" afterPath="$PROJECT_DIR$/public/project/client/views/register/register.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/client/views/missionboard/missionboard.view.html" afterPath="$PROJECT_DIR$/public/project/client/views/missionboard/missionboard.view.html" />
     </list>
     <ignored path="cs5610sprint2016.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,44 +23,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="profile.view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/client/views/profile/profile.view.html">
+      <file leaf-file-name="missionboard.view.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/project/client/views/missionboard/missionboard.view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.0597014">
-              <caret line="284" column="50" selection-start-line="284" selection-start-column="48" selection-end-line="284" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.37866354">
+              <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/client/views/home/home.view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.626866">
-              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.view.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/project/client/views/register/register.view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6768666">
-              <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project/client/views/profile/profile.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8333335">
-              <caret line="82" column="31" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="31" />
-              <folding>
-                <element signature="e#5029#5067#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -125,7 +88,6 @@
         <option value="$PROJECT_DIR$/public/project/server/service/mission.service.server.js" />
         <option value="$PROJECT_DIR$/public/project/server/model/treasure.model.server.js" />
         <option value="$PROJECT_DIR$/public/project/server/model/mission.model.server.js" />
-        <option value="$PROJECT_DIR$/public/project/client/views/missionboard/missionboard.view.html" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/project/client/views/treasurehunt/treasureSearch.view.html" />
         <option value="$PROJECT_DIR$/public/project/client/views/treasurehunt/treasureSimilar.controller.js" />
@@ -139,6 +101,7 @@
         <option value="$PROJECT_DIR$/public/project/client/views/profile/profile.controller.js" />
         <option value="$PROJECT_DIR$/public/project/client/views/home/home.view.html" />
         <option value="$PROJECT_DIR$/public/project/client/views/register/register.view.html" />
+        <option value="$PROJECT_DIR$/public/project/client/views/missionboard/missionboard.view.html" />
       </list>
     </option>
   </component>
@@ -1249,13 +1212,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/client/views/missionboard/missionboard.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61313015">
-          <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1377,7 +1333,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/project/client/views/profile/profile.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8333335">
+        <state vertical-scroll-proportion="0.33254716">
           <caret line="82" column="31" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="31" />
           <folding>
             <element signature="e#5029#5067#0" expanded="false" />
@@ -1405,6 +1361,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6768666">
           <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/client/views/missionboard/missionboard.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37866354">
+          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
           <folding />
         </state>
       </provider>

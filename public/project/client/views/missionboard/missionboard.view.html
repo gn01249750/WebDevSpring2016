@@ -21,11 +21,10 @@
                 <h3> {{item.name}} </h3>
                 <ul>
                     <li>Quantity Left: {{item.quantity}}</li>
-                    <li>Destination:
-                        <select ng-model='data.stringArrVal' ng-options="k as v for (k,v) in item.destination">
-                        </select>
+                    <li>Destination: {{item.destination}}
+
                     </li>
-                    <li>Price to Destination: ${{item.price[data.stringArrVal]}}</li>
+                    <li>Expected Price: ${{item.price}}</li>
                     <li>Description: {{item.description}}</li>
                     <a href="#/missionboard/{{item._id}}/mission" > GO!</a> <br>
                     <a href="#/treasurehunt/similar/{{item.name}}">Look Up Similar Items</a>
