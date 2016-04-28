@@ -97,6 +97,36 @@
                                 </table>
                             </div>
                         </div>
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">My Missions to Others</h5>
+                            </div>
+                            <div class = "panel-body">
+                                <table class="table table-user-information">
+                                    <thead>
+                                    <tr>
+                                        <td>Missions</td>
+                                        <td>User Interested</td>
+                                        <td>Status</td>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="mission in allMissions">
+                                            <td><a href="#/missionboard/{{mission._id}}/mission">{{mission.name}}</a></td>
+                                            <td><a data-toggle="modal" data-target="#myModal2" ng-click="chooseTreasure($index)"
+                                                   href="">Expand</a></td>
+                                            <td>{{mission.status}}</td>
+                                            <td><a href="" ng-click="deleteTreasureFromUser($index)">Remove</a></td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <h5 class="panel-title">Products Selling</h5>

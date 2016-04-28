@@ -6,12 +6,14 @@
 
     function TreasureSimilarController($scope, $routeParams, LookupService)
     {
+
         renderResults();
 
         $scope.results = [];
 
         function renderResults()
         {
+
             var treasureId = $routeParams.searchKeyWord;
             LookupService
                 .getItemIdByName(treasureId)

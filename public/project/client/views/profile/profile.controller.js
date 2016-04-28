@@ -7,14 +7,32 @@
         .controller("ProfileController", ProfileController);
 
 
-    function ProfileController($scope, $location, UserService, $rootScope, TreasureService)
+    function ProfileController($scope, $location, UserService, $rootScope, TreasureService, MissionService)
     {
         $scope.passData= passData;
         $scope.updateUser = updateUser;
         $scope.deleteTreasureFromUser = deleteTreasureFromUser;
         $scope.chooseTreasure = chooseTreasure;
         getAllTreasuresOfUser();
+        getAllMissionsOfUser();
 
+
+        function chooseMission(index)
+        {
+            $scope.chosenMission = $scope.allMissions[index];
+            $scope.chosenMissionUser = [];
+            $scope.chosenMissionMessage = $scope.chosenMission.message;
+            for(i = 0; i<$scope.chosenMission.interester.length; i++)
+            {
+                UserService
+                    .getUserByUsername($scope.chosenMission.interester[i])
+                    .then(function(response){
+                        $scope.chosenMissionUser.push(response.data);
+                    }, function(err){
+                        console.log("Error: " + err);
+                    });
+            }
+        }
 
         function chooseTreasure(index)
         {
@@ -23,17 +41,32 @@
             $scope.chosenTreasreMessage = $scope.chosenTreasure.message;
             for(i = 0; i<$scope.chosenTreasure.interester.length; i++)
             {
-                console.log(i);
                 UserService
                     .getUserByUsername($scope.chosenTreasure.interester[i])
                     .then(function(response){
-                        console.log(response.data);
                         $scope.chosenTreasureUser.push(response.data);
                     }, function(err){
                         console.log("Error: " + err);
                     });
             }
+        }
 
+        function getAllMissionsOfUser()
+        {
+            $scope.allMissions = [];
+            for(i = 0; i<$rootScope.currentUser.missions.length;i++)
+            {
+                MissionService
+                    .getMissionById($rootScope.currentUser.missions[i])
+                    .then(function(response){
+                        return response;
+                    }, function(err){
+                        console.log("Error: " + err);
+                    })
+                    .then(function(response){
+                        $scope.allMissions.push(response.data);
+                    })
+            }
         }
 
         function getAllTreasuresOfUser()
