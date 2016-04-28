@@ -63,6 +63,7 @@
             }
             MissionService.updateMissionById($scope.curMission._id, temp)
                 .then(function(response){
+                    console.log("here");
                     $scope.message = null;
                 })
 

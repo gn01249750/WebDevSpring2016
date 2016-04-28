@@ -13,6 +13,7 @@
         $scope.updateUser = updateUser;
         $scope.deleteTreasureFromUser = deleteTreasureFromUser;
         $scope.chooseTreasure = chooseTreasure;
+        $scope.chooseMission = chooseMission;
         getAllTreasuresOfUser();
         getAllMissionsOfUser();
 
@@ -82,7 +83,6 @@
                         console.log("Error: " + err);
                     })
                     .then(function(response){
-                        console.log(response.data);
                         $scope.alltreasures.push(response.data);
                     })
             }
