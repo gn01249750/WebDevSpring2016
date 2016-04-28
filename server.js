@@ -44,10 +44,10 @@ app.use(passport.session());
 //    console.log('CORS-enabled web server listening on port 80');
 //});
 
-var cors = require('cors');
+//var cors = require('cors');
 
 // use it before all route definitions
-app.use(cors({origin: 'http://www.supermarketapi.com'}));
+//app.use(cors({origin: 'http://www.supermarketapi.com'}));
 
 app.use(express.static(__dirname + '/public'));
 
